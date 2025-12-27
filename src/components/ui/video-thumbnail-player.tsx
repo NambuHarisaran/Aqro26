@@ -83,10 +83,10 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
                     </div>
 
                     {/* Title and Description */}
-                    <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-xl font-bold text-white tracking-tight drop-shadow-md">{title}</h3>
+                    <div className="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 className="text-xl font-bold text-white tracking-tight drop-shadow-lg">{title}</h3>
                         {description && (
-                            <p className="mt-2 text-sm text-white/70 line-clamp-2 max-w-[90%] font-medium">{description}</p>
+                            <p className="mt-2 text-sm text-white/80 line-clamp-2 max-w-[90%] font-medium">{description}</p>
                         )}
                     </div>
                 </div>
