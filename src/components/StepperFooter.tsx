@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Check, Phone, Mail, Loader2 } from 'lucide-react';
+import { ArrowRight, Check, Phone, Mail, Loader2, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const StepperFooter = () => {
@@ -9,16 +9,43 @@ const StepperFooter = () => {
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError('');
+        
         if (step === 1 && phone) {
             setStep(2);
         } else if (step === 2 && email) {
             setIsSubmitting(true);
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            setIsSubmitting(false);
-            setIsSuccess(true);
+            
+            try {
+                const formData = new FormData();
+                formData.append('access_key', import.meta.env.VITE_WEB3FORMS_KEY);
+                formData.append('subject', 'New Contact Request from AQRO Website');
+                formData.append('from_name', 'AQRO Website Contact Form');
+                formData.append('phone', phone);
+                formData.append('email', email);
+                formData.append('message', `New contact request:\n\nPhone: ${phone}\nEmail: ${email}`);
+
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    setIsSuccess(true);
+                } else {
+                    setError('Failed to send message. Please try again.');
+                }
+            } catch (err) {
+                setError('Failed to send message. Please try again or email us directly.');
+            } finally {
+                setIsSubmitting(false);
+            }
         }
     };
 
@@ -43,6 +70,12 @@ const StepperFooter = () => {
                 </motion.div>
             ) : (
                 <form onSubmit={handleSubmit} className="relative">
+                    {error && (
+                        <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-xl flex items-center gap-2 text-red-300 text-sm">
+                            <AlertCircle className="w-4 h-4" />
+                            {error}
+                        </div>
+                    )}
                     <div className="flex justify-between mb-4 px-2">
                         <div className={cn("flex items-center gap-2 text-sm font-medium transition-colors", step >= 1 ? "text-primary" : "text-gray-600")}>
                             <div className={cn("w-6 h-6 rounded-full flex items-center justify-center border", step >= 1 ? "bg-primary border-primary text-white" : "border-gray-600")}>1</div>

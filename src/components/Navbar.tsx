@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Sun, MessageCircle, ChevronDown } from "lucide-react";
+import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -9,7 +9,38 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    // const location = useLocation(); // Unused
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Handle hash navigation - scroll to section after navigation
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.replace('#', '');
+            // Small delay to ensure the page has rendered
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
+    const handleHashLink = (hash: string) => {
+        setIsOpen(false);
+        setDropdownOpen(false);
+        
+        if (location.pathname === '/') {
+            // Already on home page, just scroll
+            const element = document.getElementById(hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Navigate to home page with hash
+            navigate(`/#${hash}`);
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,8 +76,8 @@ const Navbar = () => {
                 className={cn(
                     "flex items-center justify-between w-full max-w-5xl px-6 py-3 rounded-full transition-all duration-300 border border-white/10",
                     scrolled
-                        ? "bg-white/5 backdrop-blur-xl shadow-2xl shadow-black/20"
-                        : "bg-white/5 backdrop-blur-md"
+                        ? "bg-black/40 backdrop-blur-2xl shadow-2xl shadow-black/30"
+                        : "bg-black/30 backdrop-blur-xl"
                 )}
             >
                 {/* Logo */}
@@ -73,14 +104,14 @@ const Navbar = () => {
                                     animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95, filter: "blur(10px)" }}
                                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 glass-card rounded-2xl overflow-hidden shadow-2xl shadow-primary/20"
+                                    className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 bg-black/50 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black/30"
                                 >
                                     <div className="flex flex-col p-2">
                                         {serviceLinks.map((link) => (
                                             <Link
                                                 key={link.name}
                                                 to={link.href}
-                                                className="px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-left"
+                                                className="px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors text-left"
                                                 onClick={() => setDropdownOpen(false)}
                                             >
                                                 {link.name}
@@ -92,12 +123,18 @@ const Navbar = () => {
                         </AnimatePresence>
                     </div>
 
-                    <a href="/#about" className="text-gray-300 hover:text-white text-sm font-medium transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                    <button
+                        onClick={() => handleHashLink('about')}
+                        className="text-gray-300 hover:text-white text-sm font-medium transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                    >
                         About
-                    </a>
-                    <a href="/#contact" className="text-gray-300 hover:text-white text-sm font-medium transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                    </button>
+                    <button
+                        onClick={() => handleHashLink('contact')}
+                        className="text-gray-300 hover:text-white text-sm font-medium transition-colors hover:shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                    >
                         Contact
-                    </a>
+                    </button>
                 </div>
 
                 {/* Right Actions */}
@@ -128,7 +165,7 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                             exit={{ opacity: 0, y: -20, scale: 0.95, filter: "blur(10px)" }}
                             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                            className="absolute top-full mt-4 left-0 right-0 mx-4 p-6 glass-card rounded-2xl shadow-2xl shadow-primary/20 flex flex-col gap-4 md:hidden"
+                            className="absolute top-full mt-4 left-0 right-0 mx-4 p-6 bg-black/60 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl shadow-black/30 flex flex-col gap-4 md:hidden"
                         >
                             <div className="flex flex-col gap-4">
                                 <div className="flex flex-col gap-2 border-b border-white/10 pb-4">
@@ -137,7 +174,7 @@ const Navbar = () => {
                                         <Link
                                             key={link.name}
                                             to={link.href}
-                                            className="text-gray-300 hover:text-white text-lg font-medium pl-4 py-2 hover:bg-white/5 rounded-lg transition-colors"
+                                            className="text-gray-300 hover:text-white text-lg font-medium pl-4 py-2 hover:bg-white/10 rounded-lg transition-colors"
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {link.name}
@@ -145,17 +182,20 @@ const Navbar = () => {
                                     ))}
                                 </div>
 
-                                <a href="/#about" className="text-gray-300 hover:text-white text-lg font-medium py-2" onClick={() => setIsOpen(false)}>About</a>
-                                <a href="/#contact" className="text-gray-300 hover:text-white text-lg font-medium py-2" onClick={() => setIsOpen(false)}>Contact</a>
+                                <button onClick={() => handleHashLink('about')} className="text-gray-300 hover:text-white text-lg font-medium py-2 text-left">About</button>
+                                <button onClick={() => handleHashLink('contact')} className="text-gray-300 hover:text-white text-lg font-medium py-2 text-left">Contact</button>
                             </div>
 
                             <div className="flex gap-4 mt-4 pt-4 border-t border-white/10">
-                                <button className="flex-1 py-3 rounded-lg bg-white/5 text-white flex justify-center items-center gap-2">
-                                    <Sun className="w-5 h-5" /> Theme
-                                </button>
-                                <button className="flex-1 py-3 rounded-lg bg-[#25D366] text-white flex justify-center items-center gap-2 font-bold">
+                                <a
+                                    href="https://wa.me/919787721111"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-1 py-3 rounded-lg bg-[#25D366] text-white flex justify-center items-center gap-2 font-bold"
+                                    onClick={() => setIsOpen(false)}
+                                >
                                     <MessageCircle className="w-5 h-5" /> Chat
-                                </button>
+                                </a>
                             </div>
                         </motion.div>
                     )}

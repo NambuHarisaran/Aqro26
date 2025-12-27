@@ -160,7 +160,7 @@ const HomePage = () => {
           <StepperFooter />
 
           <div className="mt-12 text-gray-500 text-sm">
-            Or email us directly at <a href="mailto:hello@aqro.dev" className="text-primary hover:text-white transition-colors">ceo@aqro.in</a>
+            Or email us directly at <a href="mailto:ceo@aqro.in" className="text-primary hover:text-white transition-colors">ceo@aqro.in</a>
           </div>
 
           <div className="mt-20 flex justify-center opacity-50 hover:opacity-100 transition-opacity">
