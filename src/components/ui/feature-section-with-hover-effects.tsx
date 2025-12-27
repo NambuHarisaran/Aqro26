@@ -1,61 +1,64 @@
 import { cn } from "@/lib/utils";
 import {
-    Terminal,
-    ArrowRightLeft,
-    Smartphone,
-    Cloud,
-    DollarSign,
-    HelpCircle,
-    Settings,
-    Heart,
+    Layers,
+    Zap,
+    Target,
+    Code2,
+    Handshake,
+    Puzzle,
+    TrendingUp,
+    HeadphonesIcon,
 } from "lucide-react";
 
 export function FeaturesSectionWithHoverEffects() {
     const features = [
         {
-            title: "AI & Automation",
+            title: "One Partner. End-to-End Execution",
             description:
-                "Leverage intelligent algorithms to automate workflows and optimize decision-making.",
-            icon: <Terminal className="w-6 h-6" />,
+                "From digital marketing to web, mobile apps, and SaaS development — strategy, design, development, and growth under one roof. No handoffs. No confusion.",
+            icon: <Layers className="w-6 h-6" />,
         },
         {
-            title: "Web Engineering",
+            title: "Built for Speed, Not Bureaucracy",
             description:
-                "High-performance, SEO-optimized web applications built on modern stacks.",
-            icon: <ArrowRightLeft className="w-6 h-6" />,
+                "We work lean and move fast. Optimized for startups and growing businesses that can't afford delays or over-engineering. Results, not paperwork.",
+            icon: <Zap className="w-6 h-6" />,
         },
         {
-            title: "Mobile Development",
+            title: "Business-Focused Development",
             description:
-                "Native and cross-platform apps that deliver seamless user experiences on iOS and Android.",
-            icon: <Smartphone className="w-6 h-6" />,
+                "Every website, app, or SaaS product is designed with clear business goals — conversions, retention, scalability, and ROI. If it doesn't move the business, it doesn't get built.",
+            icon: <Target className="w-6 h-6" />,
         },
         {
-            title: "SaaS Products",
-            description: "Scalable, secure, and multi-tenant architectures for your next big product.",
-            icon: <Cloud className="w-6 h-6" />,
+            title: "Clean, Modern, Scalable Tech",
+            description:
+                "Modern frameworks and best practices ensure your product is fast, secure, and future-ready — whether it's a landing page or a full SaaS platform.",
+            icon: <Code2 className="w-6 h-6" />,
+        },
+        {
+            title: "Transparent & Founder-Friendly",
+            description:
+                "Clear communication, honest timelines, and realistic expectations. We act like a long-term partner, not a short-term vendor.",
+            icon: <Handshake className="w-6 h-6" />,
+        },
+        {
+            title: "Solutions Tailored to Your Stage",
+            description:
+                "Whether you're launching an MVP or scaling an existing product, we adapt to fit your business stage, budget, and priorities — without unnecessary complexity.",
+            icon: <Puzzle className="w-6 h-6" />,
         },
         {
             title: "Strategic Growth",
-            description: "Data-driven marketing strategies designed to scale your ROI exponentially.",
-            icon: <DollarSign className="w-6 h-6" />,
+            description:
+                "Data-driven marketing strategies designed to scale your ROI exponentially and accelerate business growth.",
+            icon: <TrendingUp className="w-6 h-6" />,
         },
         {
             title: "24/7 Support",
             description:
-                "Dedicated support teams ensuring your digital infrastructure never sleeps.",
-            icon: <HelpCircle className="w-6 h-6" />,
-        },
-        {
-            title: "UI/UX Design",
-            description:
-                "Award-winning interfaces that convert visitors into loyal customers.",
-            icon: <Settings className="w-6 h-6" />,
-        },
-        {
-            title: "Cloud Infrastructure",
-            description: "Robust, auto-scaling cloud solutions powered by AWS and Google Cloud.",
-            icon: <Heart className="w-6 h-6" />,
+                "Dedicated support teams ensuring your digital infrastructure never sleeps. We're always here when you need us.",
+            icon: <HeadphonesIcon className="w-6 h-6" />,
         },
     ];
     return (
