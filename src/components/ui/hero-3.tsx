@@ -50,6 +50,9 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                 className
             )}
         >
+            {/* Black tint overlay */}
+            <div className="absolute inset-0 bg-black/65 z-[5]" />
+
             <div className="z-10 flex flex-col items-center">
                 {/* Tagline */}
                 <motion.div
@@ -111,7 +114,6 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
                     <ActionButton>{ctaText}</ActionButton>
                 </motion.div>
             </div>
-
             {/* Animated Image Marquee */}
             <div className="absolute bottom-0 left-0 w-full h-1/3 md:h-2/5 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
                 <motion.div

@@ -1,0 +1,53 @@
+# AQRO - Creative Digital Agency
+> AI-powered creative solutions for modern businesses
+
+## About AQRO
+AQRO is a creative digital agency specializing in web development, video editing, AI-powered advertising, and digital marketing solutions. We help businesses transform their digital presence with cutting-edge technology and creative excellence.
+
+## Services
+
+### Web Development
+- Custom website design and development
+- React, Next.js, and modern frameworks
+- E-commerce solutions
+- Progressive Web Apps (PWA)
+- Performance optimization
+
+### Video Editing
+- Professional video production
+- Motion graphics and animation
+- Brand videos and commercials
+- Social media content
+- Post-production services
+
+### AI Ads
+- AI-powered ad creation
+- Automated marketing campaigns
+- Performance optimization
+- A/B testing and analytics
+- Multi-platform advertising
+
+### Digital Marketing
+- SEO optimization
+- Social media marketing
+- Content strategy
+- Brand development
+- Analytics and reporting
+
+## Contact
+- Website: https://aqro.in
+- Email: ceo@aqro.in
+
+## Technologies We Use
+- React, Next.js, TypeScript
+- Tailwind CSS, Framer Motion
+- Node.js, Python
+- AI/ML integrations
+- Cloud platforms (AWS, Vercel, GCP)
+
+## Why Choose AQRO
+1. Cutting-edge technology stack
+2. AI-powered solutions
+3. Creative excellence
+4. Fast turnaround times
+5. Dedicated support

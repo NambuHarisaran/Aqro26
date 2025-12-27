@@ -172,7 +172,7 @@ const AnimatedShaderHero = ({
             />
 
             {/* Overlay Gradient for Tinting */}
-            <div className="absolute inset-0 bg-primary/40 pointer-events-none" />
+            <div className="absolute inset-0 bg-black/65 pointer-events-none" />
 
             {/* Content Content - Centered */}
             <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
