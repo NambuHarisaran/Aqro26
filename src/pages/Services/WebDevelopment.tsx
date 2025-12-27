@@ -35,10 +35,11 @@ const WebDevelopment = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
                         { title: "OnPitch", url: "https://onpitch.in/", img: "/Previews/onpitch.png", desc: "Business Innovation Platform" },
-                        { title: "GrowMate", url: "https://sunny-choux-3d4d32.netlify.app/", img: "/Previews/sunny_choux.png", desc: "SaaS Dashboard Solution" },
-                        { title: "ThinkLoop AI", url: "https://clinquant-pixie-163e09.netlify.app/", img: "/Previews/clinquant_pixie.png", desc: "AI Command Interface" },
+                        { title: "skyloan", url: "https://skyloan.in/", img: "/Previews/Skyloan.png", desc: "Loan Service" },
                         { title: "Pandam Store", url: "https://pandam.store/", img: "/Previews/pandam.png", desc: "E-commerce Experience" },
                         { title: "Zliqit", url: "https://zliqit.com/", img: "/Previews/zliqit.png", desc: "Software Development Hub" },
+                        { title: "GrowMate", url: "https://sunny-choux-3d4d32.netlify.app/", img: "/Previews/sunny_choux.png", desc: "SaaS Dashboard Solution" },
+                        { title: "ThinkLoop AI", url: "https://clinquant-pixie-163e09.netlify.app/", img: "/Previews/clinquant_pixie.png", desc: "AI Command Interface" },
                         { title: "zeMaps", url: "https://zemaps.zliqit.com/", img: "/Previews/zemaps.png", desc: "Resource Availability Map" },
                         { title: "Aqro for Students", url: "https://student.aqro.in/", img: "/Previews/student_aqro.png", desc: "Educational Ecosystem" }
                     ].map((site, i) => (
