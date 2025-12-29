@@ -164,7 +164,7 @@ const AnimatedShaderHero = ({
     }, []);
 
     return (
-        <div className={`relative w-full overflow-hidden bg-primary ${className}`} style={{ height }}>
+        <div className={`relative w-full bg-primary ${className}`} style={{ height, minHeight: height }}>
             {/* Shader Canvas */}
             <canvas
                 ref={canvasRef}
@@ -172,11 +172,11 @@ const AnimatedShaderHero = ({
             />
 
             {/* Overlay Gradient for Tinting */}
-            <div className="absolute inset-0 bg-black/65 pointer-events-none" />
+            <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
             {/* Content Content - Centered */}
-            <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-                <div className="container mx-auto px-6 text-center pointer-events-auto">
+            <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none overflow-visible">
+                <div className="container mx-auto px-6 text-center pointer-events-auto py-20">
                     <motion.div
                         initial="hidden"
                         animate="show"
@@ -209,11 +209,11 @@ const AnimatedShaderHero = ({
                         {/* Headline */}
                         <motion.h1
                             variants={FADE_UP_ANIMATION_VARIANTS}
-                            className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tight mb-8 leading-[1.1]"
+                            className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tight mb-8 leading-[1.1] px-2"
                         >
                             {headline.text}
                             {headline.highlightText && (
-                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">
+                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white italic pr-4">
                                     {headline.highlightText}
                                 </span>
                             )}
@@ -294,12 +294,12 @@ void main(void) {
     vec2 gv = fract(uv * scale) - 0.5;
     vec2 id = floor(uv * scale);
     
-    // Theme Colors
-    // Royal Blue Base: #0047AB -> normalized: (0.0, 0.278, 0.67)
-    // Darker Deep Blue: #001233 -> normalized: (0.0, 0.07, 0.2)
-    vec3 colBase = vec3(0.0, 0.07, 0.2); // Dark Deep Blue Background
-    vec3 colGrid = vec3(0.0, 0.278, 0.67); // Royal Blue Lines
-    vec3 colHighlight = vec3(0.2, 0.6, 1.0); // Bright Blue Highlight
+    // Theme Colors - Brighter version
+    // Lighter Blue Base for more vibrant look
+    // Brighter grid lines and highlights
+    vec3 colBase = vec3(0.02, 0.12, 0.35); // Lighter Deep Blue Background
+    vec3 colGrid = vec3(0.1, 0.4, 0.85); // Brighter Royal Blue Lines
+    vec3 colHighlight = vec3(0.4, 0.75, 1.0); // Vivid Blue Highlight
     
     // Grid Lines
     float thickness = 0.05;
@@ -322,17 +322,17 @@ void main(void) {
     // Add grid lines
     color += colGrid * smoothstep(0.48, 0.5, max(abs(gv.x), abs(gv.y)));
     
-    // Add glowing squares
-    if (rnd > 0.7) {
-        color = mix(color, colHighlight, pulse * 0.3);
+    // Add glowing squares - increased intensity
+    if (rnd > 0.65) {
+        color = mix(color, colHighlight, pulse * 0.5);
     }
     
-    // Add sparkles
-    color += colHighlight * sparkle * pulse;
+    // Add sparkles - brighter
+    color += colHighlight * sparkle * pulse * 1.3;
     
-    // Vignette
+    // Vignette - softer for brighter overall look
     float len = length(uv - cam);
-    color *= 1.0 - smoothstep(0.5, 1.5, len);
+    color *= 1.0 - smoothstep(0.8, 2.0, len) * 0.6;
 
     O = vec4(color, 1.0);
 }`;

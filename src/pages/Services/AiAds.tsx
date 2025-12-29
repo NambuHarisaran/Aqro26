@@ -6,7 +6,7 @@ import { VideoPlayer } from "@/components/ui/video-thumbnail-player";
 
 const AiAds = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     const videos = [

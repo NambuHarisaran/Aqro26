@@ -106,7 +106,7 @@ const StepperFooter = () => {
                                                 type="tel"
                                                 value={phone}
                                                 onChange={(e) => setPhone(e.target.value)}
-                                                placeholder="+1 (555) 000-0000"
+                                                placeholder="+91 12345 67890"
                                                 className="w-full bg-white/10 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:outline-none focus:border-white/50 transition-colors"
                                                 required
                                             />
@@ -137,7 +137,7 @@ const StepperFooter = () => {
                                                 type="email"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                placeholder="hello@company.com"
+                                                placeholder="hello@email.com"
                                                 className="w-full bg-white/10 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:outline-none focus:border-white/50 transition-colors"
                                                 required
                                             />

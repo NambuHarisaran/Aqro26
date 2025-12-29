@@ -5,7 +5,7 @@ import { Monitor, Globe } from "lucide-react";
 
 const WebDevelopment = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     return (
@@ -16,7 +16,9 @@ const WebDevelopment = () => {
             <div className="pt-32 pb-16 container mx-auto px-6 text-center relative">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
                 <h1 className="relative text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent mb-6 animate-fade-in-up">
-                    Web Engineering
+                    Built Different.
+                    <br />
+                    Built Right.
                 </h1>
                 <p className="relative text-xl text-gray-400 max-w-2xl mx-auto mb-12 animate-fade-in-up animation-delay-200">
                     We build lightning-fast, scalable, and SEO-optimized web applications using modern stacks like React, Next.js, and Tailwind CSS.
@@ -55,9 +57,7 @@ const WebDevelopment = () => {
                                 alt={site.title}
                                 className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
                             />
-
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-
                             <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                                 <h3 className="text-white text-2xl font-bold mb-1 tracking-tight">{site.title}</h3>
                                 <p className="text-gray-400 text-sm font-medium tracking-widest uppercase mb-4">{site.desc}</p>

@@ -15,49 +15,49 @@ export function FeaturesSectionWithHoverEffects() {
         {
             title: "One Partner. End-to-End Execution",
             description:
-                "From digital marketing to web, mobile apps, and SaaS development — strategy, design, development, and growth under one roof. No handoffs. No confusion.",
+                "Strategy, design, development, and growth under one roof. No handoffs. No confusion.",
             icon: <Layers className="w-6 h-6" />,
         },
         {
             title: "Built for Speed, Not Bureaucracy",
             description:
-                "We work lean and move fast. Optimized for startups and growing businesses that can't afford delays or over-engineering. Results, not paperwork.",
+                "We move fast and stay lean. Results over paperwork.",
             icon: <Zap className="w-6 h-6" />,
         },
         {
             title: "Business-Focused Development",
             description:
-                "Every website, app, or SaaS product is designed with clear business goals — conversions, retention, scalability, and ROI. If it doesn't move the business, it doesn't get built.",
+                "Every product is built with clear goals — conversions, retention, and ROI.",
             icon: <Target className="w-6 h-6" />,
         },
         {
             title: "Clean, Modern, Scalable Tech",
             description:
-                "Modern frameworks and best practices ensure your product is fast, secure, and future-ready — whether it's a landing page or a full SaaS platform.",
+                "Fast, secure, and future-ready — from landing pages to full SaaS platforms.",
             icon: <Code2 className="w-6 h-6" />,
         },
         {
             title: "Transparent & Founder-Friendly",
             description:
-                "Clear communication, honest timelines, and realistic expectations. We act like a long-term partner, not a short-term vendor.",
+                "Honest timelines, clear communication. Partner, not vendor.",
             icon: <Handshake className="w-6 h-6" />,
         },
         {
             title: "Solutions Tailored to Your Stage",
             description:
-                "Whether you're launching an MVP or scaling an existing product, we adapt to fit your business stage, budget, and priorities — without unnecessary complexity.",
+                "MVP or scale-up — we adapt to your budget and priorities.",
             icon: <Puzzle className="w-6 h-6" />,
         },
         {
             title: "Strategic Growth",
             description:
-                "Data-driven marketing strategies designed to scale your ROI exponentially and accelerate business growth.",
+                "Data-driven marketing to scale your ROI and accelerate growth.",
             icon: <TrendingUp className="w-6 h-6" />,
         },
         {
             title: "24/7 Support",
             description:
-                "Dedicated support teams ensuring your digital infrastructure never sleeps. We're always here when you need us.",
+                "Your digital infrastructure never sleeps. Neither do we.",
             icon: <HeadphonesIcon className="w-6 h-6" />,
         },
     ];

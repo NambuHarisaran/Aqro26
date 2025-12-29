@@ -5,7 +5,7 @@ import { Play, Film, Scissors, Music } from "lucide-react";
 
 const VideoEditing = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
 
     return (
