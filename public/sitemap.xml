@@ -1,33 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
   <url>
     <loc>https://aqro.in/</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aqro.in/Logo/aqro-logo.png</image:loc>
+      <image:title>AQRO - Creative Digital Agency</image:title>
+      <image:caption>AQRO Digital Agency specializing in web development, video editing, and AI-powered advertising</image:caption>
+    </image:image>
   </url>
+  
+  <!-- About Us Page -->
   <url>
-    <loc>https://aqro.in/our-works</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://aqro.in/about</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Our Works / Portfolio Page -->
+  <url>
+    <loc>https://aqro.in/works</loc>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  
+  <!-- Web Development Service Page -->
   <url>
-    <loc>https://aqro.in/services/web-development</loc>
-    <lastmod>2025-12-27</lastmod>
+    <loc>https://aqro.in/services/web</loc>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
+  
+  <!-- Video Editing Service Page -->
   <url>
     <loc>https://aqro.in/services/video-editing</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
+  
+  <!-- AI Ads Service Page -->
   <url>
     <loc>https://aqro.in/services/ai-ads</loc>
-    <lastmod>2025-12-27</lastmod>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Creatives Page -->
+  <url>
+    <loc>https://aqro.in/services/creatives</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://aqro.in/privacy</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Terms & Conditions Page -->
+  <url>
+    <loc>https://aqro.in/terms</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- LLM Discovery File -->
+  <url>
+    <loc>https://aqro.in/llms.txt</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
 </urlset>

@@ -3,43 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Primary Meta Tags -->
-    <title>AQRO | Creative Digital Agency - Web Development, Video Editing & AI Ads</title>
-    <meta name="title" content="AQRO | Creative Digital Agency - Web Development, Video Editing & AI Ads" />
-    <meta name="description" content="AQRO is a creative digital agency specializing in web development, video editing, AI-powered advertising, and digital marketing. Transform your digital presence with cutting-edge solutions." />
-    <meta name="keywords" content="digital agency, web development, video editing, AI ads, marketing, creative agency, React, Next.js, branding, AQRO" />
-    <meta name="author" content="AQRO" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/Logo/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Logo/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Logo/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Logo/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
     
-    <!-- Viewport -->
+    <!-- Viewport and Mobile Optimization -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>AQRO - Web Development, Video Editing & AI Ads | Creative Digital Agency India</title>
+    <meta name="title" content="AQRO - Web Development, Video Editing & AI Ads | Creative Digital Agency India" />
+    <meta name="description" content="AQRO is India's leading creative digital agency specializing in custom web development (React, Next.js), professional video editing, motion graphics, and AI-powered advertising campaigns. Transform your digital presence with cutting-edge solutions." />
+    <meta name="keywords" content="web development, web design, website development, React development, Next.js development, video editing, video production, motion graphics, post-production, AI ads, AI advertising, AI video ads, AI ad creation, digital marketing, creative agency, web developer india, video editor india, AI marketing, brand videos, social media videos, corporate videos, ecommerce website, landing page, web app development, AQRO" />
+    <meta name="author" content="AQRO Digital Agency" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://aqro.in/" />
     
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/Logo/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/Logo/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/Logo/apple-touch-icon.png" />
-    <link rel="shortcut icon" href="/Logo/favicon.ico" />
-    <link rel="manifest" href="/manifest.json" />
+    <!-- Theme Colors -->
     <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- LLM Discovery Meta Tags -->
+    <meta name="ai-content-discovery" content="enabled" />
+    <meta name="llm-indexable" content="true" />
+    <meta name="ai-training-data" content="opt-in" />
+    
+    <!-- Resource Hints for LLM Crawlers -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://aqro.in/sitemap.xml" />
+    <link rel="alternate" type="text/plain" title="LLM Information" href="https://aqro.in/llms.txt" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aqro.in/" />
-    <meta property="og:title" content="AQRO | Creative Digital Agency - Web Development, Video Editing & AI Ads" />
-    <meta property="og:description" content="AQRO is a creative digital agency specializing in web development, video editing, AI-powered advertising, and digital marketing. Transform your digital presence with cutting-edge solutions." />
+    <meta property="og:title" content="AQRO - Web Development, Video Editing & AI Ads | Creative Digital Agency India" />
+    <meta property="og:description" content="AQRO is India's leading creative digital agency specializing in custom web development (React, Next.js), professional video editing, motion graphics, and AI-powered advertising campaigns. Transform your digital presence." />
     <meta property="og:image" content="https://aqro.in/Logo/aqro-logo.png" />
-    <meta property="og:site_name" content="AQRO" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AQRO Digital Agency" />
     <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://aqro.in/" />
-    <meta name="twitter:title" content="AQRO | Creative Digital Agency - Web Development, Video Editing & AI Ads" />
-    <meta name="twitter:description" content="AQRO is a creative digital agency specializing in web development, video editing, AI-powered advertising, and digital marketing." />
+    <meta name="twitter:title" content="AQRO - Web Development, Video Editing & AI Ads | Creative Digital Agency India" />
+    <meta name="twitter:description" content="India's leading creative digital agency for web development, video editing, and AI-powered advertising. Transform your digital presence with AQRO." />
     <meta name="twitter:image" content="https://aqro.in/Logo/aqro-logo.png" />
     
     <!-- Structured Data - Organization -->
@@ -47,42 +65,104 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "AQRO",
-      "description": "Creative digital agency specializing in web development, video editing, AI-powered advertising, and digital marketing.",
+      "name": "AQRO Digital Agency",
+      "alternateName": "AQRO",
       "url": "https://aqro.in",
       "logo": "https://aqro.in/Logo/aqro-logo.png",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "contact@aqro.in"
-      },
-      "offers": [
+      "description": "Creative digital agency specializing in web development, video editing, AI-powered advertising, and digital marketing.",
+      "foundingDate": "2025",
+      "founders": [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Web Development",
-            "description": "Custom website design and development using React, Next.js, and modern frameworks"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Video Editing",
-            "description": "Professional video production, motion graphics, and post-production services"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Ads",
-            "description": "AI-powered advertising campaigns and automated marketing solutions"
-          }
+          "@type": "Person",
+          "name": "AQRO Team"
         }
-      ]
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN",
+        "addressRegion": "India"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9787721111",
+          "contactType": "customer service",
+          "email": "contact@aqro.in",
+          "availableLanguage": ["English", "Hindi"]
+        }
+      ],
+      "sameAs": [
+        "https://wa.me/919787721111"
+      ],
+      "serviceArea": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Development",
+              "description": "Custom website design and development using React, Next.js, and modern frameworks. We build responsive, SEO-optimized websites, web applications, and e-commerce solutions."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Video Editing",
+              "description": "Professional video production, motion graphics, and post-production services. Corporate videos, social media content, brand videos, and promotional material."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Ads",
+              "description": "AI-powered advertising campaigns, AI video ads, and automated marketing solutions for maximum ROI and engagement."
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "50",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "AQRO Digital Agency",
+      "image": "https://aqro.in/Logo/aqro-logo.png",
+      "telephone": "+91-9787721111",
+      "email": "contact@aqro.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "20.5937",
+        "longitude": "78.9629"
+      },
+      "url": "https://aqro.in",
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "serviceArea": {
+        "@type": "Country",
+        "name": "India"
+      }
     }
     </script>
     
@@ -102,10 +182,64 @@
     }
     </script>
     
+    <!-- Structured Data - Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "AQRO Services",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "Web Development",
+            "url": "https://aqro.in/services/web-development",
+            "description": "Custom React and Next.js web development services",
+            "provider": {
+              "@type": "Organization",
+              "name": "AQRO"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "Video Editing",
+            "url": "https://aqro.in/services/video-editing",
+            "description": "Professional video editing and motion graphics services",
+            "provider": {
+              "@type": "Organization",
+              "name": "AQRO"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Service",
+            "name": "AI Ads",
+            "url": "https://aqro.in/services/ai-ads",
+            "description": "AI-powered advertising and marketing campaigns",
+            "provider": {
+              "@type": "Organization",
+              "name": "AQRO"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+    
     <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://api.web3forms.com" />
+    <link rel="dns-prefetch" href="https://wa.me" />
   </head>
   <body>
     <div id="root"></div>

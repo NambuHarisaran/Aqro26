@@ -1,37 +1,61 @@
-# robots.txt for AQRO
-# https://aqro.in
-
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Sitemap and LLM Discovery Files
 Sitemap: https://aqro.in/sitemap.xml
+LLM-Info: https://aqro.in/llm.txt
 
-# Crawl-delay (optional, be nice to servers)
+# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# AI/LLM Crawlers - Welcome!
+# Specific rules for search engines and AI crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
 User-agent: GPTBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Anthropic-AI
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: CCBot
+User-agent: Claude-Web
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-# Block unnecessary paths
-Disallow: /api/
-Disallow: /*.json$
+User-agent: YouBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# AI Training Data Access
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Block access to admin areas and sensitive files
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.env
+Disallow: /config/
+
+# Allow important discovery files
+Allow: /llm.txt
+Allow: /sitemap.xml
+Allow: /manifest.json
+Allow: /site.webmanifest
+Allow: /*.css$
+Allow: /*.js$
+Allow: /src/assets/
+Allow: /public/
