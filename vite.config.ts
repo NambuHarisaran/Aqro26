@@ -10,7 +10,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Exclude unnecessary files from public folder during build
+  publicDir: 'public',
   build: {
+    // Copy only necessary public files, exclude dev/backup files
+    copyPublicDir: true,
     // Performance optimizations
     target: 'esnext',
     minify: 'esbuild',

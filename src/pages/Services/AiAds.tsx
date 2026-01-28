@@ -19,26 +19,26 @@ const AiAds = () => {
     const videos = [
         {
             url: "https://www.youtube.com/embed/8zqjhLhIlZU",
-            title: "Global Commerce Solution",
-            desc: "AI-driven precision for international markets.",
+            title: "Tata Sierra 2025 | Chirstmas Commercial | Aqro.in",
+            desc: "We made this amazing ad Commercial for tata motors on their new suv Tata Sierra this ad Focus on increasing the buyers on Chirstmas season !",
             thumb: "https://img.youtube.com/vi/8zqjhLhIlZU/maxresdefault.jpg"
         },
         {
             url: "https://www.youtube.com/embed/MXMXieBWdlo",
-            title: "Dynamic Creative Optimization",
-            desc: "Real-time asset testing and scaling.",
+            title: "Tata Safari 2025 | AI Ad Commercial | Aqro.in",
+            desc: "we made this amazing ad Commercial for tata motors on the their tata safari model this ad explains all key features of the Tata Safari 2025",
             thumb: "https://img.youtube.com/vi/MXMXieBWdlo/maxresdefault.jpg"
         },
         {
             url: "https://www.youtube.com/embed/EDGoruMwI9M",
-            title: "Predictive Audience Mapping",
-            desc: "Finding high-intent users before they search.",
+            title: "CCTV Creative Ad commercial | Aqro.in",
+            desc: "we made this amazing ad Commercial for cctv cameras brand to increase their sales on diwali season this ad focus on security features of cctv cameras",
             thumb: "https://img.youtube.com/vi/EDGoruMwI9M/maxresdefault.jpg"
         },
         {
             url: "https://www.youtube.com/embed/4WV_TG1ZvHg",
-            title: "ROAS Engine v2.0",
-            desc: "Machine learning applied to performance bidding.",
+            title: "Boat Commercial | Aqro.in",
+            desc: "we made this amazing ad Commercial for boat brand to increase their sales on diwali season this ad focus on sound quality and bass of boat earphones",
             thumb: "https://img.youtube.com/vi/4WV_TG1ZvHg/maxresdefault.jpg"
         }
     ];

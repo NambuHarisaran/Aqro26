@@ -27,3 +27,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Backup and old files
+oldindex.html
+*.bak
+*.backup
+*.old
+
+# Compressed files that shouldn't be deployed
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Temporary files
+*.tmp
+*.temp
+~*

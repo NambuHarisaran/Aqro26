@@ -2,7 +2,7 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="/aqro-logo.png"/>
+            <square150x150logo src="/Logo/aqro-logo.png"/>
             <TileColor>#3b82f6</TileColor>
         </tile>
     </msapplication>
