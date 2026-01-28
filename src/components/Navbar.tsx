@@ -284,6 +284,8 @@ const Navbar = () => {
                 <motion.button
                     className="md:hidden text-white p-2 rounded-lg"
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label={isOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isOpen}
                     whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
