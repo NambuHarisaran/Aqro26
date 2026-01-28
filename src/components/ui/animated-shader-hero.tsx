@@ -117,14 +117,29 @@ const AnimatedShaderHero = ({
         gl.enableVertexAttribArray(positionAttributeLocation);
         gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
+        // Use cached dimensions to avoid forced reflows
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = window.innerHeight;
+        let resizeScheduled = false;
+
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            gl.viewport(0, 0, canvas.width, canvas.height);
+            if (resizeScheduled) return;
+            resizeScheduled = true;
+            requestAnimationFrame(() => {
+                canvasWidth = window.innerWidth;
+                canvasHeight = window.innerHeight;
+                canvas.width = canvasWidth;
+                canvas.height = canvasHeight;
+                gl.viewport(0, 0, canvasWidth, canvasHeight);
+                resizeScheduled = false;
+            });
         };
 
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas, { passive: true });
+        // Initial size without causing reflow
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        gl.viewport(0, 0, canvasWidth, canvasHeight);
 
         gl.useProgram(program);
 
