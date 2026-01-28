@@ -9,24 +9,9 @@ oldindex.html
 *.rar
 *.7z
 
-# Ignore development files
+# Ignore development-only files
 *.log
-.git
-.gitignore
-.gitattributes
 README.md
-
-# Ignore config files not needed for deployment
-tsconfig*.json
-eslint.config.js
-postcss.config.js
-tailwind.config.js
-
-# Ignore source files (Vite handles these)
-src/
-
-# Ignore node_modules (Vercel installs fresh)
-node_modules/
 
 # Ignore any temporary files
 *.tmp
