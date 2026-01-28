@@ -1,8 +1,15 @@
 import { useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
+import useSEO from "@/hooks/useSEO";
 
 const TermsConditions = () => {
+    useSEO({
+        title: "Terms & Conditions",
+        description: "Review AQRO's terms and conditions for using our digital services including web development, video editing, and AI advertising.",
+        canonical: "https://aqro.in/terms"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

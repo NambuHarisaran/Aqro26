@@ -78,6 +78,10 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <img
                   src={service.image}
                   alt={`${service.title} showcase`}
+                  loading="lazy"
+                  decoding="async"
+                  width={160}
+                  height={160}
                   className="absolute w-40 h-auto rounded-xl shadow-md shadow-black/50 transform -rotate-6 transition-all duration-400 ease-out group-hover:rotate-[-12deg] group-hover:scale-110 group-hover:-translate-x-2"
                   onError={(e) => { 
                     const target = e.target as HTMLImageElement;
@@ -89,6 +93,10 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <img
                   src={service.overlayImage}
                   alt={`${service.title} example`}
+                  loading="lazy"
+                  decoding="async"
+                  width={160}
+                  height={160}
                   className="absolute w-40 h-auto rounded-xl shadow-xl shadow-primary/20 transform rotate-3 transition-all duration-400 ease-out group-hover:rotate-[8deg] group-hover:scale-110 group-hover:translate-x-2"
                   onError={(e) => { 
                     const target = e.target as HTMLImageElement;

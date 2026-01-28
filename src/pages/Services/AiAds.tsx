@@ -3,8 +3,15 @@ import Navbar from "@/components/Navbar";
 import StepperFooter from "@/components/StepperFooter";
 import { TrendingUp, Target, BarChart, Bot, Sparkles } from "lucide-react";
 import { VideoPlayer } from "@/components/ui/video-thumbnail-player";
+import useSEO from "@/hooks/useSEO";
 
 const AiAds = () => {
+    useSEO({
+        title: "AI Advertising & Marketing Services - AI-Powered Campaigns",
+        description: "AI-powered advertising and marketing campaigns for maximum ROI. Dynamic creative optimization, predictive audience mapping, and machine learning-driven performance bidding.",
+        canonical: "https://aqro.in/services/ai-ads"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

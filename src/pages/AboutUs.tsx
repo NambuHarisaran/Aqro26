@@ -3,8 +3,15 @@ import Navbar from "@/components/Navbar";
 import StepperFooter from "@/components/StepperFooter";
 import { Link } from "react-router-dom";
 import { Target, Users, Award, Heart, Zap } from "lucide-react";
+import useSEO from "@/hooks/useSEO";
 
 const AboutUs = () => {
+    useSEO({
+        title: "About AQRO - Our Story & Mission",
+        description: "Learn about AQRO, India's leading AI-powered digital agency. Discover our mission, values, and the team behind innovative web development, video editing, and AI advertising solutions.",
+        canonical: "https://aqro.in/about"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

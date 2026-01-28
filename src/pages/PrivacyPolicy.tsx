@@ -1,8 +1,15 @@
 import { useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
+import useSEO from "@/hooks/useSEO";
 
 const PrivacyPolicy = () => {
+    useSEO({
+        title: "Privacy Policy",
+        description: "Read AQRO's privacy policy. Learn how we collect, use, and protect your personal information when you use our digital services.",
+        canonical: "https://aqro.in/privacy"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

@@ -2,8 +2,15 @@ import { useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import StepperFooter from "@/components/StepperFooter";
 import { Monitor, Globe } from "lucide-react";
+import useSEO from "@/hooks/useSEO";
 
 const WebDevelopment = () => {
+    useSEO({
+        title: "Web Development Services - React, Next.js & Tailwind CSS",
+        description: "Custom web development services using React, Next.js, and Tailwind CSS. We build lightning-fast, scalable, SEO-optimized websites and web applications in India.",
+        canonical: "https://aqro.in/services/web"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

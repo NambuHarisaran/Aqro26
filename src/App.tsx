@@ -1,16 +1,37 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import AnimatedShaderHero from "@/components/ui/animated-shader-hero";
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
-import ServicesSection from "@/components/ui/services-section";
-import StepperFooter from "@/components/StepperFooter";
-import OurWorks from "@/pages/OurWorks";
-import WebDevelopment from "@/pages/Services/WebDevelopment";
-import VideoEditing from "@/pages/Services/VideoEditing";
-import AiAds from "@/pages/Services/AiAds";
-import AboutUs from "@/pages/AboutUs";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsConditions from "@/pages/TermsConditions";
+
+// Lazy load heavy components for better initial load time
+const AnimatedShaderHero = lazy(() => import("@/components/ui/animated-shader-hero"));
+const FeaturesSectionWithHoverEffects = lazy(() => 
+  import("@/components/ui/feature-section-with-hover-effects").then(m => ({ default: m.FeaturesSectionWithHoverEffects }))
+);
+const ServicesSection = lazy(() => import("@/components/ui/services-section"));
+const StepperFooter = lazy(() => import("@/components/StepperFooter"));
+
+// Lazy load pages - these are only loaded when user navigates to them
+const OurWorks = lazy(() => import("@/pages/OurWorks"));
+const WebDevelopment = lazy(() => import("@/pages/Services/WebDevelopment"));
+const VideoEditing = lazy(() => import("@/pages/Services/VideoEditing"));
+const AiAds = lazy(() => import("@/pages/Services/AiAds"));
+const AboutUs = lazy(() => import("@/pages/AboutUs"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsConditions = lazy(() => import("@/pages/TermsConditions"));
+
+// Loading fallback component
+const PageLoader = () => (
+  <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="w-10 h-10 border-3 border-white/10 border-t-blue-500 rounded-full animate-spin"></div>
+  </div>
+);
+
+// Section loader for inline components
+const SectionLoader = () => (
+  <div className="py-24 bg-black flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-white/10 border-t-blue-500 rounded-full animate-spin"></div>
+  </div>
+);
 
 const HomePage = () => {
   const scrollToSection = (id: string) => {
@@ -22,28 +43,30 @@ const HomePage = () => {
     <div className="bg-transparent min-h-screen text-foreground font-sans selection:bg-white selection:text-primary">
       <Navbar />
 
-      <AnimatedShaderHero
-        trustBadge={{
-          text: "Powered by AI + Design",
-          icons: ["✨", "🎨"]
-        }}
-        headline={{
-          text: "Built Different.",
-          highlightText: "Built Right."
-        }}
-        subtitle="India's leading AI-powered digital marketing agency crafting viral social media content."
-        buttons={{
-          primary: {
-            text: "Start a Project",
-            onClick: () => scrollToSection('contact')
-          },
-          secondary: {
-            text: "View Services",
-            onClick: () => scrollToSection('services')
-          }
-        }}
-        className="max-h-[100vh]"
-      />
+      <Suspense fallback={<SectionLoader />}>
+        <AnimatedShaderHero
+          trustBadge={{
+            text: "Powered by AI + Design",
+            icons: ["✨", "🎨"]
+          }}
+          headline={{
+            text: "Built Different.",
+            highlightText: "Built Right."
+          }}
+          subtitle="India's leading AI-powered digital marketing agency crafting viral social media content."
+          buttons={{
+            primary: {
+              text: "Start a Project",
+              onClick: () => scrollToSection('contact')
+            },
+            secondary: {
+              text: "View Services",
+              onClick: () => scrollToSection('services')
+            }
+          }}
+          className="max-h-[100vh]"
+        />
+      </Suspense>
 
       {/* Black Tint Overlay - This is handled inside animated-shader-hero.tsx now */}
 
@@ -54,7 +77,9 @@ const HomePage = () => {
             Why Choose AQRO?
           </h2>
         </div>
-        <FeaturesSectionWithHoverEffects />
+        <Suspense fallback={<SectionLoader />}>
+          <FeaturesSectionWithHoverEffects />
+        </Suspense>
       </section>
 
       {/* About Section */}
@@ -65,6 +90,8 @@ const HomePage = () => {
               <img
                 src="/Logo/2.png"
                 alt="About AQRO"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl shadow-2xl shadow-primary/20 hover:scale-[1.02] transition-transform duration-500"
               />
             </div>
@@ -90,10 +117,12 @@ const HomePage = () => {
 
       {/* Services Section */}
       <section id="services">
-        <ServicesSection 
-          title="Our Expertise" 
-          subtitle="Everything you need to grow your digital presence, under one roof."
-        />
+        <Suspense fallback={<SectionLoader />}>
+          <ServicesSection 
+            title="Our Expertise" 
+            subtitle="Everything you need to grow your digital presence, under one roof."
+          />
+        </Suspense>
       </section>
 
       {/* Contact Section */}
@@ -106,7 +135,9 @@ const HomePage = () => {
           </p>
 
           {/* Stepper Form */}
-          <StepperFooter />
+          <Suspense fallback={<SectionLoader />}>
+            <StepperFooter />
+          </Suspense>
 
           <div className="mt-12 text-gray-500 text-sm">
             Or email us directly at <a href="mailto:ceo@aqro.in" className="text-primary hover:text-white transition-colors">ceo@aqro.in</a>
@@ -122,7 +153,7 @@ const HomePage = () => {
       <footer className="py-12 bg-black border-t border-white/5">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <img src="/Logo/aqro-logo.png" alt="AQRO" className="h-6 opacity-70 grayscale hover:grayscale-0 transition-all" />
+            <img src="/Logo/aqro-logo.png" alt="AQRO" loading="lazy" decoding="async" className="h-6 opacity-70 grayscale hover:grayscale-0 transition-all" />
             <span className="text-gray-500 text-sm">© 2026 AQRO. All rights reserved.</span>
           </div>
           <div className="flex gap-6 text-gray-500 text-sm">
@@ -142,17 +173,19 @@ const HomePage = () => {
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/works" element={<OurWorks />} />
-        <Route path="/services/web" element={<WebDevelopment />} />
-        <Route path="/services/video-editing" element={<VideoEditing />} />
-        <Route path="/services/ai-ads" element={<AiAds />} />
-        <Route path="/services/creatives" element={<OurWorks />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsConditions />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/works" element={<OurWorks />} />
+          <Route path="/services/web" element={<WebDevelopment />} />
+          <Route path="/services/video-editing" element={<VideoEditing />} />
+          <Route path="/services/ai-ads" element={<AiAds />} />
+          <Route path="/services/creatives" element={<OurWorks />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

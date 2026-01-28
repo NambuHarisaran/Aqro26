@@ -1,8 +1,15 @@
 import { useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import CircularGallery from "@/components/CircularGallery";
+import useSEO from "@/hooks/useSEO";
 
 const OurWorks = () => {
+    useSEO({
+        title: "Our Creative Works & Portfolio",
+        description: "Explore AQRO's portfolio of creative digital masterpieces. View our best work in web development, video editing, AI ads, and brand design.",
+        canonical: "https://aqro.in/works"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

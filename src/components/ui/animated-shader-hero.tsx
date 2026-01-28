@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, memo } from 'react';
 import { motion, Variants } from 'framer-motion';
 
 const FADE_UP_ANIMATION_VARIANTS: Variants = {
@@ -337,4 +337,5 @@ void main(void) {
     O = vec4(color, 1.0);
 }`;
 
-export default AnimatedShaderHero;
+// Memoize to prevent unnecessary re-renders
+export default memo(AnimatedShaderHero);

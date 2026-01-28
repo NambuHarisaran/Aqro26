@@ -89,6 +89,8 @@ const CircularGallery = () => {
                             <img
                                 src={item.src}
                                 alt={item.title}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover pointer-events-none group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                             />
 

@@ -2,8 +2,15 @@ import { useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import StepperFooter from "@/components/StepperFooter";
 import { Play, Film, Scissors, Music } from "lucide-react";
+import useSEO from "@/hooks/useSEO";
 
 const VideoEditing = () => {
+    useSEO({
+        title: "Professional Video Editing Services - Reels, Shorts & Cinematic Content",
+        description: "Professional video editing services for Reels, TikToks, YouTube Shorts, and cinematic brand videos. Transform raw footage into captivating stories with AQRO.",
+        canonical: "https://aqro.in/services/video-editing"
+    });
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);

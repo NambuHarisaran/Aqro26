@@ -15,26 +15,50 @@ export default defineConfig({
     target: 'esnext',
     minify: 'esbuild',
     cssMinify: true,
+    cssCodeSplit: true, // Split CSS for each async chunk
     rollupOptions: {
       output: {
-        // Code splitting for better caching
+        // Improved code splitting for better caching
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          animations: ['framer-motion'],
+          // Core React runtime
+          'react-vendor': ['react', 'react-dom'],
+          // Router - separate chunk
+          'router': ['react-router-dom'],
+          // Animations - often large, separate chunk
+          'animations': ['framer-motion'],
+          // UI utilities
+          'ui-utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
         },
+        // Optimize chunk file names for caching
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
       },
     },
-    // Compress assets
+    // Inline small assets to reduce requests
     assetsInlineLimit: 4096,
-    // Generate source maps for debugging (disable in production if needed)
+    // Disable source maps in production for smaller files
     sourcemap: false,
     // Chunk size warning limit
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
+    // Enable module preload polyfill
+    modulePreload: {
+      polyfill: true,
+    },
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    exclude: [],
   },
   // Optimize dev server
   server: {
     warmup: {
       clientFiles: ['./src/main.tsx', './src/App.tsx'],
     },
+  },
+  // Enable faster esbuild for CSS
+  css: {
+    devSourcemap: false,
   },
 })
