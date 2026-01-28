@@ -107,7 +107,7 @@ const TermsConditions = () => {
                         <h2 className="text-2xl font-bold text-white mb-4">10. Contact Us</h2>
                         <p className="text-gray-400 leading-relaxed">
                             For questions about these Terms & Conditions, please contact us at{' '}
-                            <a href="mailto:ceo@aqro.in" className="text-primary hover:text-white transition-colors">ceo@aqro.in</a>
+                            <a href="mailto:ceo@aqro.in" className="text-blue-400 hover:text-white transition-colors">ceo@aqro.in</a>
                         </p>
                     </div>
                 </div>
@@ -118,9 +118,9 @@ const TermsConditions = () => {
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-2">
                         <img src="/Logo/aqro-logo.png" alt="AQRO" className="h-6 opacity-70 grayscale hover:grayscale-0 transition-all" />
-                        <span className="text-gray-500 text-sm">© 2026 AQRO. All rights reserved.</span>
+                        <span className="text-gray-400 text-sm">© 2026 AQRO. All rights reserved.</span>
                     </div>
-                    <div className="flex gap-6 text-gray-500 text-sm">
+                    <div className="flex gap-6 text-gray-400 text-sm">
                         <Link to="/" className="hover:text-white transition-colors">Home</Link>
                         <Link to="/about" className="hover:text-white transition-colors">About</Link>
                         <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>

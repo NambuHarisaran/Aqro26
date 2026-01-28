@@ -77,13 +77,13 @@ const StepperFooter = () => {
                         </div>
                     )}
                     <div className="flex justify-between mb-4 px-2">
-                        <div className={cn("flex items-center gap-2 text-sm font-medium transition-colors", step >= 1 ? "text-primary" : "text-gray-600")}>
-                            <div className={cn("w-6 h-6 rounded-full flex items-center justify-center border", step >= 1 ? "bg-primary border-primary text-white" : "border-gray-600")}>1</div>
+                        <div className={cn("flex items-center gap-2 text-sm font-medium transition-colors", step >= 1 ? "text-blue-400" : "text-gray-400")}>
+                            <div className={cn("w-6 h-6 rounded-full flex items-center justify-center border", step >= 1 ? "bg-primary border-primary text-white" : "border-gray-400 text-gray-400")}>1</div>
                             Phone
                         </div>
                         <div className="flex-1 h-px bg-white/10 mx-4 self-center" />
-                        <div className={cn("flex items-center gap-2 text-sm font-medium transition-colors", step >= 2 ? "text-primary" : "text-gray-600")}>
-                            <div className={cn("w-6 h-6 rounded-full flex items-center justify-center border", step >= 2 ? "bg-primary border-primary text-white" : "border-gray-600")}>2</div>
+                        <div className={cn("flex items-center gap-2 text-sm font-medium transition-colors", step >= 2 ? "text-blue-400" : "text-gray-400")}>
+                            <div className={cn("w-6 h-6 rounded-full flex items-center justify-center border", step >= 2 ? "bg-primary border-primary text-white" : "border-gray-400 text-gray-400")}>2</div>
                             Email
                         </div>
                     </div>

@@ -164,9 +164,9 @@ const AboutUs = () => {
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-2">
                         <img src="/Logo/aqro-logo.png" alt="AQRO" className="h-6 opacity-70 grayscale hover:grayscale-0 transition-all" />
-                        <span className="text-gray-500 text-sm">© 2026 AQRO. All rights reserved.</span>
+                        <span className="text-gray-400 text-sm">© 2026 AQRO. All rights reserved.</span>
                     </div>
-                    <div className="flex gap-6 text-gray-500 text-sm">
+                    <div className="flex gap-6 text-gray-400 text-sm">
                         <Link to="/" className="hover:text-white transition-colors">Home</Link>
                         <Link to="/about" className="hover:text-white transition-colors">About</Link>
                         <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
