@@ -68,7 +68,11 @@ const AboutUs = () => {
                         <img
                             src="/Logo/2.png"
                             alt="AQRO Team"
-                            className="rounded-2xl shadow-2xl shadow-primary/20"
+                            width={600}
+                            height={400}
+                            loading="lazy"
+                            decoding="async"
+                            className="rounded-2xl shadow-2xl shadow-primary/20 w-full h-auto"
                         />
                     </div>
                     <div className="w-full lg:w-1/2 space-y-6">
@@ -163,7 +167,7 @@ const AboutUs = () => {
             <footer className="py-12 bg-black border-t border-white/5 mt-auto">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-2">
-                        <img src="/Logo/aqro-logo.png" alt="AQRO" className="h-6 opacity-70 grayscale hover:grayscale-0 transition-all" />
+                        <img src="/Logo/aqro-logo.png" alt="AQRO" width={24} height={24} loading="lazy" decoding="async" className="h-6 w-auto opacity-70 grayscale hover:grayscale-0 transition-all" />
                         <span className="text-gray-400 text-sm">© 2026 AQRO. All rights reserved.</span>
                     </div>
                     <div className="flex gap-6 text-gray-400 text-sm">

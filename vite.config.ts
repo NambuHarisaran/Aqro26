@@ -23,15 +23,30 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Improved code splitting for better caching
-        manualChunks: {
-          // Core React runtime
-          'react-vendor': ['react', 'react-dom'],
-          // Router - separate chunk
-          'router': ['react-router-dom'],
-          // Animations - often large, separate chunk
-          'animations': ['framer-motion'],
-          // UI utilities
-          'ui-utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
+        manualChunks: (id) => {
+          // Core React runtime - essential, load first
+          if (id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          if (id.includes('node_modules/react/') && !id.includes('react-dom')) {
+            return 'react-vendor';
+          }
+          // Router - needed early for navigation
+          if (id.includes('node_modules/react-router')) {
+            return 'router';
+          }
+          // Framer Motion - split into smaller chunks, lazy load
+          if (id.includes('node_modules/framer-motion')) {
+            return 'animations';
+          }
+          // UI utilities - small, can be bundled together
+          if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
+            return 'ui-utils';
+          }
+          // Icons - separate chunk
+          if (id.includes('lucide-react') || id.includes('@tabler/icons-react')) {
+            return 'icons';
+          }
         },
         // Optimize chunk file names for caching
         chunkFileNames: 'assets/js/[name]-[hash].js',
@@ -52,7 +67,7 @@ export default defineConfig({
   },
   // Optimize dependencies
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    include: ['react', 'react-dom', 'react-router-dom'],
     exclude: [],
   },
   // Optimize dev server

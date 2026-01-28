@@ -138,7 +138,9 @@ const Navbar = () => {
                 <Link to="/" className="flex items-center gap-2 group">
                     <motion.img 
                         src="/Logo/logo.png" 
-                        alt="AQRO" 
+                        alt="AQRO"
+                        width={32}
+                        height={32}
                         className="h-8 w-auto object-contain"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         whileTap={{ scale: 0.95 }}
