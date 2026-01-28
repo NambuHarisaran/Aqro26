@@ -1,10 +1,4 @@
-import { useRef, useEffect, memo } from 'react';
-import { motion, Variants } from 'framer-motion';
-
-const FADE_UP_ANIMATION_VARIANTS: Variants = {
-    hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" } },
-};
+import { useRef, useEffect, memo, useState } from 'react';
 
 interface ShaderHeroProps {
     trustBadge?: {
@@ -178,6 +172,14 @@ const AnimatedShaderHero = ({
         };
     }, []);
 
+    // Track mount for CSS animations
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        // Small delay to trigger CSS transitions after initial paint
+        const timer = setTimeout(() => setMounted(true), 50);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className={`relative w-full bg-primary ${className}`} style={{ height, minHeight: height }}>
             {/* Shader Canvas */}
@@ -192,22 +194,13 @@ const AnimatedShaderHero = ({
             {/* Content Content - Centered */}
             <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none overflow-visible">
                 <div className="container mx-auto px-6 text-center pointer-events-auto py-20">
-                    <motion.div
-                        initial="hidden"
-                        animate="show"
-                        viewport={{ once: true }}
-                        variants={{
-                            hidden: {},
-                            show: {
-                                transition: {
-                                    staggerChildren: 0.15
-                                }
-                            }
-                        }}
-                    >
-                        {/* Trust Badge */}
+                    <div>
+                        {/* Trust Badge - animate after mount */}
                         {trustBadge && (
-                            <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
+                            <div 
+                                className={`transition-all duration-500 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+                                style={{ transitionDelay: '150ms' }}
+                            >
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-white/10 mb-8 mx-auto hover:bg-white/10 transition-colors cursor-default">
                                     {trustBadge.icons && (
                                         <div className="flex -space-x-2 mr-2">
@@ -218,13 +211,12 @@ const AnimatedShaderHero = ({
                                     )}
                                     <span className="text-sm font-medium text-white/90 uppercase tracking-widest">{trustBadge.text}</span>
                                 </div>
-                            </motion.div>
+                            </div>
                         )}
 
-                        {/* Headline */}
-                        <motion.h1
-                            variants={FADE_UP_ANIMATION_VARIANTS}
-                            className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tight mb-8 leading-[1.1] px-2"
+                        {/* Headline - VISIBLE IMMEDIATELY for LCP, no animation delay */}
+                        <h1
+                            className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tight mb-8 leading-[1.1] px-2 opacity-100"
                         >
                             {headline.text}
                             {headline.highlightText && (
@@ -232,21 +224,21 @@ const AnimatedShaderHero = ({
                                     {headline.highlightText}
                                 </span>
                             )}
-                        </motion.h1>
+                        </h1>
 
-                        {/* Subtitle */}
-                        <motion.p
-                            variants={FADE_UP_ANIMATION_VARIANTS}
-                            className="text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed"
+                        {/* Subtitle - animate after mount */}
+                        <p
+                            className={`text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed transition-all duration-500 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+                            style={{ transitionDelay: '300ms' }}
                         >
                             {subtitle}
-                        </motion.p>
+                        </p>
 
-                        {/* CTA Buttons with Animation */}
+                        {/* CTA Buttons - animate after mount */}
                         {buttons && (
-                            <motion.div
-                                className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
-                                variants={FADE_UP_ANIMATION_VARIANTS}
+                            <div
+                                className={`flex flex-col sm:flex-row gap-4 justify-center mt-10 transition-all duration-500 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
+                                style={{ transitionDelay: '450ms' }}
                             >
                                 {buttons.primary && (
                                     <button
@@ -264,9 +256,9 @@ const AnimatedShaderHero = ({
                                         {buttons.secondary.text}
                                     </button>
                                 )}
-                            </motion.div>
+                            </div>
                         )}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </div>

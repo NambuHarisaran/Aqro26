@@ -3,7 +3,6 @@
 "use client";
 
 import * as React from "react";
-import { motion, useInView } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -248,27 +247,46 @@ export interface Service {
   link?: string;
 }
 
-// Sub-component for individual cards
-const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: index * 0.1,
-      },
-    },
-  };
+// Custom hook for intersection observer (replaces framer-motion's useInView)
+function useIntersectionObserver(options: { threshold?: number; once?: boolean } = {}) {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = React.useState(false);
 
+  React.useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (options.once) {
+            observer.unobserve(element);
+          }
+        } else if (!options.once) {
+          setIsVisible(false);
+        }
+      },
+      { threshold: options.threshold ?? 0.2 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [options.once, options.threshold]);
+
+  return { ref, isVisible };
+}
+
+// Sub-component for individual cards with CSS animations
+const ServiceCard = ({ service, index, isVisible }: { service: Service; index: number; isVisible: boolean }) => {
   return (
-    <motion.div
-      variants={cardVariants}
+    <div
       className={cn(
-        "relative flex h-[400px] w-full flex-col justify-between overflow-hidden rounded-3xl p-8 bg-gradient-to-br border border-white/10",
-        service.gradient
+        "relative flex h-[400px] w-full flex-col justify-between overflow-hidden rounded-3xl p-8 bg-gradient-to-br border border-white/10 transition-all duration-500 ease-out",
+        service.gradient,
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       )}
+      style={{ transitionDelay: `${index * 100}ms` }}
     >
       {/* Card Content */}
       <div className="z-10 flex flex-col items-start text-left">
@@ -286,40 +304,34 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
 
       {/* Subtle overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-    </motion.div>
+    </div>
   );
 };
 
 // Main exportable component
 export const ServiceCarousel = ({ services }: { services: Service[] }) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { ref, isVisible } = useIntersectionObserver({ once: true, threshold: 0.2 });
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
       <Carousel
-        ref={ref}
         opts={{
           align: "start",
           loop: true,
         }}
         className="relative"
       >
-        <motion.div
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            transition={{ staggerChildren: 0.1 }}
-        >
+        <div ref={ref}>
             <CarouselContent className="-ml-4">
             {services.map((service, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                    <ServiceCard service={service} index={index} />
+                    <ServiceCard service={service} index={index} isVisible={isVisible} />
                 </div>
                 </CarouselItem>
             ))}
             </CarouselContent>
-        </motion.div>
+        </div>
         <CarouselPrev className="bg-white/10 border-white/20 hover:bg-white/20 text-white hidden md:flex" />
         <CarouselNext className="bg-white/10 border-white/20 hover:bg-white/20 text-white hidden md:flex" />
       </Carousel>
