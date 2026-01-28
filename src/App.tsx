@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
+import NavbarLite from "@/components/NavbarLite";
 
 // Lazy load heavy components for better initial load time
 const AnimatedShaderHero = lazy(() => import("@/components/ui/animated-shader-hero"));
@@ -41,7 +41,7 @@ const HomePage = () => {
 
   return (
     <div className="bg-transparent min-h-screen text-foreground font-sans selection:bg-white selection:text-primary">
-      <Navbar />
+      <NavbarLite />
 
       <Suspense fallback={<SectionLoader />}>
         <AnimatedShaderHero
