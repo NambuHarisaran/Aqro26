@@ -1,9 +1,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap and LLM Discovery Files
+# Sitemap
 Sitemap: https://aqro.in/sitemap.xml
-LLM-Info: https://aqro.in/llm.txt
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
