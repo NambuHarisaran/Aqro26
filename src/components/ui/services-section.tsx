@@ -19,29 +19,29 @@ const defaultServices: ServiceItem[] = [
   {
     title: "Web Development",
     description: "Modern, fast, SEO-optimized",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=512&h=512&fit=crop",
-    overlayImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=512&h=512&fit=crop",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=320&h=320&fit=crop&fm=webp&q=80",
+    overlayImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&h=320&fit=crop&fm=webp&q=80",
     link: "/services/web"
   },
   {
     title: "AI-Driven Marketing",
     description: "Scale your ROI exponentially",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=512&h=512&fit=crop",
-    overlayImage: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=512&h=512&fit=crop",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=320&h=320&fit=crop&fm=webp&q=80",
+    overlayImage: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=320&h=320&fit=crop&fm=webp&q=80",
     link: "/services/ai-ads"
   },
   {
     title: "Video Production",
     description: "Viral content that converts",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=512&h=512&fit=crop",
-    overlayImage: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=512&h=512&fit=crop",
+    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=320&h=320&fit=crop&fm=webp&q=80",
+    overlayImage: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=320&h=320&fit=crop&fm=webp&q=80",
     link: "/services/video-editing"
   },
   {
     title: "Creative Design",
     description: "Eye-catching brand assets",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=512&h=512&fit=crop",
-    overlayImage: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=512&h=512&fit=crop",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=320&h=320&fit=crop&fm=webp&q=80",
+    overlayImage: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=320&h=320&fit=crop&fm=webp&q=80",
     link: "/services/creatives"
   }
 ];

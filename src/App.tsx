@@ -26,9 +26,9 @@ const PageLoader = () => (
   </div>
 );
 
-// Section loader for inline components
+// Section loader for inline components - sized to prevent CLS
 const SectionLoader = () => (
-  <div className="py-24 bg-black flex items-center justify-center">
+  <div className="min-h-[400px] bg-black flex items-center justify-center">
     <div className="w-8 h-8 border-2 border-white/10 border-t-blue-500 rounded-full animate-spin"></div>
   </div>
 );
@@ -77,9 +77,11 @@ const HomePage = () => {
             Why Choose AQRO?
           </h2>
         </div>
-        <Suspense fallback={<SectionLoader />}>
-          <FeaturesSectionWithHoverEffects />
-        </Suspense>
+        <div className="min-h-[600px] lg:min-h-[400px]">
+          <Suspense fallback={<SectionLoader />}>
+            <FeaturesSectionWithHoverEffects />
+          </Suspense>
+        </div>
       </section>
 
       {/* About Section */}
