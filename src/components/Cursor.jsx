@@ -12,7 +12,10 @@ export default function Cursor() {
   useEffect(() => {
     const fine = window.matchMedia('(pointer: fine)').matches
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (!fine || reduced) return
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    const isMobile = window.innerWidth <= 768 || isTouch
+
+    if (!fine || reduced || isMobile) return
     setEnabled(true)
     document.body.classList.add('custom-cursor')
 
