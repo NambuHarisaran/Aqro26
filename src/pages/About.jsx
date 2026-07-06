@@ -100,7 +100,7 @@ export default function About() {
             {[
               { end: 6, suffix: '', label: 'Products live' },
               { end: 2, suffix: '', label: 'Years running' },
-              { end: 3, suffix: '', label: 'Apps in the lab' },
+              { end: 1, suffix: '', label: 'Apps in the lab' },
               { end: 24, suffix: 'h', label: 'Reply time' },
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 0.08}>

@@ -20,7 +20,7 @@ import { projects, sectors } from '../data/projects.js'
 const stats = [
   { end: 6, suffix: '', label: 'Products live' },
   { end: 4, suffix: '', label: 'Industries served' },
-  { end: 3, suffix: '', label: 'Apps in the lab' },
+  { end: 1, suffix: '', label: 'Apps in the lab' },
   { end: 24, suffix: 'h', label: 'Reply time' },
 ]
 
