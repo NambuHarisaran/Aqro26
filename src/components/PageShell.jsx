@@ -46,6 +46,11 @@ const routeMeta = {
     description: 'Read how AQRO STUDIO collects, uses, and protects personal information.',
     keywords: 'privacy policy, data protection, AQRO STUDIO privacy',
   },
+  '/timewallet/privacy-policy': {
+    title: 'TimeWallet Privacy Policy',
+    description: 'Read how TimeWallet collects, uses, and protects your wallet data.',
+    keywords: 'timewallet privacy policy, wallet app privacy, app data protection',
+  },
   '/terms': {
     title: 'Terms and Conditions',
     description: 'Review the terms for using the AQRO STUDIO website and working with the studio.',
