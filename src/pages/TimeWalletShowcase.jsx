@@ -25,27 +25,43 @@ const calculationsExamples = [
 ]
 
 export default function TimeWalletShowcase() {
-  const [hourlyWage, setHourlyWage] = useState(300)
+  const [monthlyIncome, setMonthlyIncome] = useState(50000)
+  const [itemName, setItemName] = useState('')
   const [calcInput, setCalcInput] = useState('')
   const [calcResult, setCalcResult] = useState(null)
 
-  function handleCalculate(value) {
-    const num = parseFloat(value)
-    if (isNaN(num) || num <= 0 || hourlyWage <= 0) {
+  function handleCalculate(priceVal, incomeVal, itemVal) {
+    const price = parseFloat(priceVal)
+    const income = parseFloat(incomeVal !== undefined ? incomeVal : monthlyIncome)
+    const name = itemVal !== undefined ? itemVal : itemName
+
+    if (isNaN(price) || price <= 0 || isNaN(income) || income <= 0) {
       setCalcResult(null)
       return
     }
-    const totalHours = num / hourlyWage
+
+    // Standard 176 working hours per month (22 working days * 8 hours)
+    const calculatedHourlyWage = income / 176
+    const totalHours = price / calculatedHourlyWage
     const days = Math.floor(totalHours / 8) // Assuming 8-hour workday
     const remainingHours = totalHours % 8
     const hours = Math.floor(remainingHours)
     const minutes = Math.round((remainingHours - hours) * 60)
 
-    setCalcResult({ days, hours, minutes, totalHours: totalHours.toFixed(1) })
+    setCalcResult({
+      days,
+      hours,
+      minutes,
+      totalHours: totalHours.toFixed(1),
+      hourlyWage: Math.round(calculatedHourlyWage),
+      itemName: name || 'this item'
+    })
   }
 
   const inputCls =
     'w-full rounded-2xl border border-mist/20 bg-deep/50 px-5 py-4 text-paper placeholder:text-mist/60 outline-none transition-colors focus:border-amber text-center font-bold text-2xl'
+  const textInputCls =
+    'w-full rounded-2xl border border-mist/20 bg-deep/50 px-5 py-4 text-paper placeholder:text-mist/60 outline-none transition-colors focus:border-amber text-center text-lg'
 
   return (
     <PageShell title="TimeWallet — Save Your Time">
@@ -102,47 +118,70 @@ export default function TimeWalletShowcase() {
 
       {/* ───── Calculator Interactive Section ───── */}
       <section className="mx-auto max-w-7xl px-5 md:px-10 py-16 border-t border-line">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <SectionTag>Interactive Calculator</SectionTag>
             <h2 className="display-tight mt-4 text-4xl md:text-5xl">
               What is a purchase <span className="text-amber">really costing you?</span>
             </h2>
             <p className="mt-4 text-mist leading-relaxed">
-              Enter your real hourly wage and the price of an item you want to buy. Our converter will 
-              instantly translate that price into the exact amount of work-time required to earn it.
+              Don't know your hourly wage? No problem. Enter your monthly income below to convert your earnings to an hourly rate. Then enter the item name and price to calculate your real time-cost.
             </p>
 
             <div className="mt-8 space-y-4">
               <div className="p-5 rounded-3xl border border-line bg-ink/40">
                 <label className="block text-xs font-semibold uppercase tracking-[0.25em] text-mist mb-3">
-                  Your Hourly Wage (₹ / hr)
+                  Your Monthly Income (₹)
                 </label>
                 <input
                   type="number"
-                  value={hourlyWage}
+                  value={monthlyIncome}
                   onChange={(e) => {
-                    setHourlyWage(Number(e.target.value))
-                    if (calcInput) handleCalculate(calcInput)
+                    const inc = Number(e.target.value)
+                    setMonthlyIncome(inc)
+                    if (calcInput) handleCalculate(calcInput, inc, itemName)
                   }}
                   className={inputCls}
                 />
+                <span className="block text-[11px] text-mist/70 text-center mt-2">
+                  Equals ~₹{Math.round(monthlyIncome / 176)}/hr (based on 22 working days, 8 hrs/day)
+                </span>
               </div>
 
-              <div className="p-5 rounded-3xl border border-line bg-ink/40">
-                <label className="block text-xs font-semibold uppercase tracking-[0.25em] text-mist mb-3">
-                  Item Price (₹)
-                </label>
-                <input
-                  type="number"
-                  placeholder="e.g. 5000"
-                  value={calcInput}
-                  onChange={(e) => {
-                    setCalcInput(e.target.value)
-                    handleCalculate(e.target.value)
-                  }}
-                  className={inputCls}
-                />
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="p-5 rounded-3xl border border-line bg-ink/40">
+                  <label className="block text-xs font-semibold uppercase tracking-[0.25em] text-mist mb-3">
+                    What should you buy?
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. iPhone 15 Pro"
+                    value={itemName}
+                    onChange={(e) => {
+                      const name = e.target.value
+                      setItemName(name)
+                      if (calcInput) handleCalculate(calcInput, monthlyIncome, name)
+                    }}
+                    className={textInputCls}
+                  />
+                </div>
+
+                <div className="p-5 rounded-3xl border border-line bg-ink/40">
+                  <label className="block text-xs font-semibold uppercase tracking-[0.25em] text-mist mb-3">
+                    Item Price (₹)
+                  </label>
+                  <input
+                    type="number"
+                    placeholder="e.g. 130000"
+                    value={calcInput}
+                    onChange={(e) => {
+                      const prc = e.target.value
+                      setCalcInput(prc)
+                      handleCalculate(prc, monthlyIncome, itemName)
+                    }}
+                    className={inputCls}
+                  />
+                </div>
               </div>
             </div>
           </Reveal>
@@ -158,13 +197,13 @@ export default function TimeWalletShowcase() {
                     <span>{calcResult.minutes}m</span>
                   </div>
                   <p className="text-mist max-w-md mx-auto text-sm leading-relaxed">
-                    At ₹{hourlyWage}/hr, you must work for a total of <strong className="text-paper">{calcResult.totalHours} hours</strong> (assuming 8-hour working days) just to afford this item.
+                    To buy <strong className="text-paper">{calcResult.itemName}</strong> (₹{parseFloat(calcInput).toLocaleString('en-IN')}), you must work for a total of <strong className="text-paper">{calcResult.totalHours} hours</strong> (at ~₹{calcResult.hourlyWage}/hr).
                   </p>
                 </div>
               ) : (
                 <div className="space-y-4 text-center my-auto">
                   <Coins className="size-16 mx-auto text-mist/30 animate-pulse-soft" />
-                  <p className="text-lg text-mist">Enter price details on the left to calculate your time cost.</p>
+                  <p className="text-lg text-mist">Enter income and item details on the left to calculate your time cost.</p>
                 </div>
               )}
 
@@ -176,15 +215,16 @@ export default function TimeWalletShowcase() {
                       key={item.label}
                       onClick={() => {
                         setCalcInput(String(item.value))
-                        handleCalculate(String(item.value))
+                        setItemName(item.label)
+                        handleCalculate(String(item.value), monthlyIncome, item.label)
                       }}
                       className="flex items-center justify-between p-3 rounded-2xl border border-line bg-deep/30 hover:border-amber/40 hover:bg-deep/70 transition-all text-left group"
                     >
-                      <div>
+                      <div className="truncate">
                         <div className="text-xs text-mist">{item.category}</div>
-                        <div className="text-sm font-semibold text-paper group-hover:text-amber transition-colors mt-0.5">{item.label}</div>
+                        <div className="text-sm font-semibold text-paper group-hover:text-amber transition-colors mt-0.5 truncate max-w-[150px]">{item.label}</div>
                       </div>
-                      <div className="font-bold text-sm text-paper pl-2">₹{item.value}</div>
+                      <div className="font-bold text-sm text-paper pl-2 shrink-0">₹{item.value}</div>
                     </button>
                   ))}
                 </div>
