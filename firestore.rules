@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Contact form — anyone can create, nobody can read/update/delete from client
+    match /contactSubmissions/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+    // Account deletion requests — same: create-only
+    match /deletionRequests/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+  }
+}

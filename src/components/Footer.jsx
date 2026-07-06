@@ -11,6 +11,7 @@ const nav = [
   { to: '/contact', label: 'Contact' },
   { to: '/privacy-policy', label: 'Privacy Policy' },
   { to: '/terms', label: 'Terms & Conditions' },
+  { to: '/timewallet/delete-account', label: 'Delete Account' },
 ]
 
 export default function Footer() {

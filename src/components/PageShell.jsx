@@ -51,6 +51,11 @@ const routeMeta = {
     description: 'Read how TimeWallet collects, uses, and protects your wallet data.',
     keywords: 'timewallet privacy policy, wallet app privacy, app data protection',
   },
+  '/timewallet/delete-account': {
+    title: 'Delete Account — TimeWallet',
+    description: 'Request permanent deletion of your TimeWallet account and all associated data.',
+    keywords: 'timewallet delete account, account deletion request, remove data',
+  },
   '/terms': {
     title: 'Terms and Conditions',
     description: 'Review the terms for using the AQRO STUDIO website and working with the studio.',
