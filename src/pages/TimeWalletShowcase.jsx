@@ -7,6 +7,7 @@ import Reveal from '../components/Reveal.jsx'
 import Sparkle from '../components/Sparkle.jsx'
 import ParallaxLayer from '../components/ParallaxLayer.jsx'
 import TimeWalletVideo, { TOTAL_FRAMES } from '../components/TimeWalletVideo/TimeWalletVideo.jsx'
+import TimeWalletLogo from '../components/TimeWalletLogo.jsx'
 
 const featuresList = [
   { icon: Clock, title: 'Live hourly earnings tracker', desc: 'Watch your real wage tick up in real time while you work — overtime and taxes factored in.' },
@@ -72,6 +73,13 @@ export default function TimeWalletShowcase() {
         <div className="relative mx-auto max-w-7xl px-5 md:px-10 grid gap-12 lg:grid-cols-[1.2fr_1fr] items-center">
           <Reveal>
             <SectionTag>Featured App</SectionTag>
+            <div className="mt-4 flex items-center gap-4">
+              <TimeWalletLogo className="size-20 shrink-0 text-paper md:size-24 drop-shadow-[0_0_18px_rgba(255,255,255,0.15)]" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-mist/70">TimeWallet</p>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.28em] text-amber">Save Your Time</p>
+              </div>
+            </div>
             <h1 className="display-tight mt-4 text-6xl md:text-8xl">
               TIME<span className="text-amber">WALLET.</span>
             </h1>

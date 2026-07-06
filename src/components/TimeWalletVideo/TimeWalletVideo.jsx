@@ -1,4 +1,5 @@
 import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig, spring, interpolate } from 'remotion'
+import TimeWalletLogo from '../TimeWalletLogo.jsx'
 
 /* Promo film for TimeWallet (in.no1ads.timewallet) — mirrors the real app's
    EARN → SPEND → DECIDE → GROW dashboard flow. Composition: 1080×1350 @ 30fps. */
@@ -346,10 +347,8 @@ function SceneOutro() {
   return (
     <Scene len={len}>
       <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 60 }}>
-        <div style={{ transform: `scale(${logo})` }}>
-          <span style={{ fontFamily: DISPLAY, fontSize: 130, color: C.paper, lineHeight: 1 }}>
-            TIME<span style={{ color: C.amber }}>WALLET.</span>
-          </span>
+        <div style={{ transform: `scale(${logo})`, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <TimeWalletLogo style={{ width: 280, height: 280, color: C.paper }} />
         </div>
         <div style={{ fontFamily: SANS, fontSize: 34, color: C.mist, marginTop: 30, opacity: tag }}>
           Save your time the way you save your money.
