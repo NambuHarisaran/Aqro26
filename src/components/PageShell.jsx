@@ -56,6 +56,11 @@ const routeMeta = {
     description: 'Request permanent deletion of your TimeWallet account and all associated data.',
     keywords: 'timewallet delete account, account deletion request, remove data',
   },
+  '/timewallet': {
+    title: 'TimeWallet — Save Your Time',
+    description: 'TimeWallet converts every rupee you spend into the work-time it actually cost you. Save your time the way you save your money.',
+    keywords: 'TimeWallet, money to time converter, time cost tracker, personal finance app',
+  },
   '/terms': {
     title: 'Terms and Conditions',
     description: 'Review the terms for using the AQRO STUDIO website and working with the studio.',

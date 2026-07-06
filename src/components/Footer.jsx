@@ -7,6 +7,7 @@ const nav = [
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/apps', label: 'Apps' },
+  { to: '/timewallet', label: 'TimeWallet' },
   { to: '/webpages', label: 'Webpages' },
   { to: '/contact', label: 'Contact' },
   { to: '/privacy-policy', label: 'Privacy Policy' },

@@ -19,6 +19,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import Terms from './pages/Terms.jsx'
 import TimeWalletPrivacyPolicy from './pages/TimeWalletPrivacyPolicy.jsx'
 import TimeWalletDeleteAccount from './pages/TimeWalletDeleteAccount.jsx'
+import TimeWalletShowcase from './pages/TimeWalletShowcase.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -54,6 +55,7 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/timewallet/privacy-policy" element={<TimeWalletPrivacyPolicy />} />
             <Route path="/timewallet/delete-account" element={<TimeWalletDeleteAccount />} />
+            <Route path="/timewallet" element={<TimeWalletShowcase />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<Home />} />
           </Routes>
