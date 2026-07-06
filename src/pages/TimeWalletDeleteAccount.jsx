@@ -61,7 +61,7 @@ export default function TimeWalletDeleteAccount() {
       setStatus('success')
     } catch (err) {
       console.error('Deletion request failed:', err)
-      setErrorMsg('Something went wrong. Please try again or email us directly at aqrowallet@gmail.com.')
+      setErrorMsg('Something went wrong. Please try again or email us directly at aqroindia@gmail.com.')
       setStatus('error')
     }
   }
@@ -272,8 +272,8 @@ export default function TimeWalletDeleteAccount() {
 
                   <p className="text-xs text-mist/70">
                     You can also email us directly at{' '}
-                    <a href="mailto:aqrowallet@gmail.com" className="text-amber hover:text-ember transition-colors">
-                      aqrowallet@gmail.com
+                    <a href="mailto:aqroindia@gmail.com" className="text-amber hover:text-ember transition-colors">
+                      aqroindia@gmail.com
                     </a>{' '}
                     to request account deletion.
                   </p>

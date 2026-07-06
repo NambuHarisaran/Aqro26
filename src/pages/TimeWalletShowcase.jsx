@@ -83,10 +83,27 @@ export default function TimeWalletShowcase() {
               <strong> hours worked</strong> instead of abstract currency. A ₹1,500 buy isn't just money — it's half a work-day.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <Magnetic>
                 <StarButton to="/contact">Get the app</StarButton>
               </Magnetic>
+
+              {/* Google Play Store button */}
+              <div className="relative group">
+                <div className="inline-flex items-center gap-3 rounded-2xl border border-line bg-ink/60 px-5 py-3.5 opacity-55 cursor-not-allowed select-none transition-all duration-300 hover:border-amber/20">
+                  <svg viewBox="0 0 24 24" className="size-5 shrink-0 fill-current text-amber">
+                    <path d="M3 22.0003V2.00032C3 1.54732 3.25 1.13432 3.656 0.922316L14.77 12.0003L3.656 23.0783C3.25 22.8663 3 22.4533 3 22.0003ZM16.184 13.4143L20.344 15.8143C21.219 16.3193 21.219 17.6813 20.344 18.1863L16.184 20.5863L12.77 17.1723L16.184 13.4143ZM12.77 6.82832L16.184 10.2423L20.344 7.84232C21.219 7.33732 21.219 5.97532 20.344 5.47032L16.184 7.87032L12.77 6.82832ZM15.77 12.0003L4.656 23.0783L12.77 14.9643L15.77 12.0003Z"/>
+                  </svg>
+                  <div className="text-left leading-none">
+                    <span className="text-[8px] uppercase tracking-[0.1em] text-mist font-semibold">Get it on</span>
+                    <span className="block text-xs font-bold text-paper mt-0.5">Google Play</span>
+                  </div>
+                </div>
+                <span className="absolute -top-2.5 -right-2.5 rounded-full bg-amber px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.1em] text-ink shadow-[0_4px_12px_rgba(242,169,59,0.3)]">
+                  Coming Soon
+                </span>
+              </div>
+
               <StarButton to="/timewallet/delete-account" variant="ghost">
                 Account Deletion Request
               </StarButton>

@@ -1,14 +1,14 @@
 /**
  * ──────────────────────────────────────────────────────────
  *  AQRO Studio — Firebase Cloud Functions
- *  Sends email notifications to aqrowallet@gmail.com
+ *  Sends email notifications to aqroindia@gmail.com
  *  when new form submissions appear in Firestore.
  *
  *  SETUP:
  *  1. cd functions && npm install
  *  2. Set email credentials:
  *     firebase functions:config:set
- *       email.user="aqrowallet@gmail.com"
+ *       email.user="aqroindia@gmail.com"
  *       email.pass="YOUR_GMAIL_APP_PASSWORD"
  *
  *     (Generate an App Password at https://myaccount.google.com/apppasswords)
@@ -27,7 +27,7 @@ initializeApp()
 // ── Config params (set via firebase functions:config or .env) ──
 const EMAIL_USER = defineString('EMAIL_USER', {
   description: 'Gmail address used to send emails',
-  default: 'aqrowallet@gmail.com',
+  default: 'aqroindia@gmail.com',
 })
 const EMAIL_PASS = defineString('EMAIL_PASS', {
   description: 'Gmail App Password (NOT your regular password)',
@@ -90,7 +90,7 @@ exports.onContactSubmission = onDocumentCreated(
 
     await transporter.sendMail({
       from: `"AQRO Studio" <${EMAIL_USER.value()}>`,
-      to: 'aqrowallet@gmail.com',
+      to: 'aqroindia@gmail.com',
       replyTo: data.email,
       subject: `🌟 New Enquiry: ${data.projectType} — ${data.name}`,
       html,
@@ -154,7 +154,7 @@ exports.onDeletionRequest = onDocumentCreated(
 
     await transporter.sendMail({
       from: `"AQRO Studio" <${EMAIL_USER.value()}>`,
-      to: 'aqrowallet@gmail.com',
+      to: 'aqroindia@gmail.com',
       replyTo: data.email,
       subject: `🗑️ Account Deletion Request — ${data.app} — ${data.email}`,
       html,
