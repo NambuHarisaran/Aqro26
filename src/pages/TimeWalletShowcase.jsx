@@ -84,19 +84,28 @@ export default function TimeWalletShowcase() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Magnetic>
-                <StarButton to="/contact">Get the app</StarButton>
-              </Magnetic>
-
-              {/* Google Play Store button */}
-              <div className="relative group">
-                <div className="inline-flex items-center gap-3 rounded-2xl border border-line bg-ink/60 px-5 py-3.5 opacity-55 cursor-not-allowed select-none transition-all duration-300 hover:border-amber/20">
+              {/* Google Play Store button - Active */}
+              <a href="https://play.google.com/store/apps/details?id=in.no1ads.timewallet" target="_blank" rel="noopener noreferrer" className="group">
+                <div className="inline-flex items-center gap-3 rounded-2xl border border-line bg-ink px-5 py-3.5 transition-all duration-300 hover:border-amber hover:bg-raise shadow-[0_10px_40px_-10px_rgba(242,169,59,0.2)]">
                   <svg viewBox="0 0 24 24" className="size-5 shrink-0 fill-current text-amber">
                     <path d="M3 22.0003V2.00032C3 1.54732 3.25 1.13432 3.656 0.922316L14.77 12.0003L3.656 23.0783C3.25 22.8663 3 22.4533 3 22.0003ZM16.184 13.4143L20.344 15.8143C21.219 16.3193 21.219 17.6813 20.344 18.1863L16.184 20.5863L12.77 17.1723L16.184 13.4143ZM12.77 6.82832L16.184 10.2423L20.344 7.84232C21.219 7.33732 21.219 5.97532 20.344 5.47032L16.184 7.87032L12.77 6.82832ZM15.77 12.0003L4.656 23.0783L12.77 14.9643L15.77 12.0003Z"/>
                   </svg>
                   <div className="text-left leading-none">
                     <span className="text-[8px] uppercase tracking-[0.1em] text-mist font-semibold">Get it on</span>
                     <span className="block text-xs font-bold text-paper mt-0.5">Google Play</span>
+                  </div>
+                </div>
+              </a>
+
+              {/* App Store button - Coming Soon */}
+              <div className="relative group">
+                <div className="inline-flex items-center gap-3 rounded-2xl border border-line bg-ink/40 px-5 py-3.5 opacity-45 cursor-not-allowed select-none">
+                  <svg viewBox="0 0 24 24" className="size-5 shrink-0 fill-current text-mist">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.48C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.1 16.67C20.08 16.74 19.67 18.11 18.71 19.5ZM15.97 4.17C16.63 3.37 17.07 2.28 16.95 1C16 1.04 14.9 1.6 14.24 2.38C13.68 3.04 13.19 4.14 13.34 5.39C14.39 5.47 15.4 4.88 15.97 4.17Z"/>
+                  </svg>
+                  <div className="text-left leading-none">
+                    <span className="text-[8px] uppercase tracking-[0.1em] text-mist font-semibold">Download on the</span>
+                    <span className="block text-xs font-bold text-paper mt-0.5">App Store</span>
                   </div>
                 </div>
                 <span className="absolute -top-2.5 -right-2.5 rounded-full bg-amber px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.1em] text-ink shadow-[0_4px_12px_rgba(242,169,59,0.3)]">
