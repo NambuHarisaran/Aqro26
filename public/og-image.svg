@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="48" fill="#0F1116"/>
+  <circle cx="110" cy="110" r="220" fill="#1A1F2A" opacity="0.55"/>
+  <circle cx="1080" cy="520" r="190" fill="#F2A93B" opacity="0.16"/>
+  <path d="M830 112H1040V164H902V256H1012V307H902V418H1040V470H830V112Z" fill="#F6F7FB"/>
+  <path d="M560 112C646 112 705 160 705 234C705 304 662 346 607 361L724 470H637L530 368H452V470H383V112H560ZM452 158V321H551C623 321 663 289 663 235C663 179 623 158 551 158H452Z" fill="#F2A93B"/>
+  <text x="74" y="560" fill="#F6F7FB" font-family="Anton, Impact, Arial, sans-serif" font-size="84" letter-spacing="6">AQRO STUDIO</text>
+  <text x="76" y="605" fill="#8C93A5" font-family="Space Grotesk, Arial, sans-serif" font-size="26" letter-spacing="1.5">Apps, websites, and digital products that convert</text>
+</svg>

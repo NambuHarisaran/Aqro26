@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* "Midnight Mono" — ported from the TimeWallet app palette.
+   One warm-amber accent on charcoal surfaces; nothing neon. */
+@theme {
+  --font-display: "Anton", "Arial Narrow", system-ui, sans-serif;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+
+  --color-ink: #0f1116;
+  --color-deep: #14161c;
+  --color-surface: #1a1d26;
+  --color-raise: #232733;
+  --color-amber: #f2a93b;
+  --color-ember: #f6c77e;
+  --color-denim: #6e93c9;
+  --color-mint: #4fb286;
+  --color-paper: #f0f2f6;
+  --color-mist: #7c8597;
+  --color-line: #262a33;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-fast: marquee 18s linear infinite;
+  --animate-spin-slow: spin 16s linear infinite;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 5s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(3deg); }
+  }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* custom cursor active on precise pointers — keep text caret in fields */
+@media (pointer: fine) {
+  body.custom-cursor,
+  body.custom-cursor a,
+  body.custom-cursor button,
+  body.custom-cursor label,
+  body.custom-cursor select {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-raise);
+  border-radius: 8px;
+}
+
+@utility display-tight {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.92;
+}
+
+@utility text-stroke-faint {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(124, 133, 151, 0.30);
+}
+
+@utility grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@utility card-glass {
+  background: linear-gradient(150deg, rgba(35, 39, 51, 0.55), rgba(20, 22, 28, 0.65));
+  border: 1px solid rgba(124, 133, 151, 0.16);
+  backdrop-filter: blur(12px);
+}
+
+/* progressive left→right blur for coming-soon cards */
+@utility blur-sweep {
+  backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 35%, black 70%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 35%, black 70%);
+}
+@utility blur-sweep-heavy {
+  backdrop-filter: blur(26px);
+  mask-image: linear-gradient(to right, transparent 30%, black 78%);
+  -webkit-mask-image: linear-gradient(to right, transparent 30%, black 78%);
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
