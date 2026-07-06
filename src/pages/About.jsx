@@ -1,4 +1,5 @@
 import { Compass, Gem, HeartHandshake, Zap } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PageShell from '../components/PageShell.jsx'
 import SectionTag from '../components/SectionTag.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -36,7 +37,7 @@ const values = [
 const milestones = [
   { year: '2025', title: 'The spark', text: 'AQRO STUDIO starts as a two-person crew shipping landing pages from India.' },
   { year: '2025', title: 'First sites live', text: 'OnPitch, SkyLoan and Pandam Store launch — real products, real users.' },
-  { year: '2026', title: 'First app in the wild', text: 'TimeWallet ships: money, priced in hours. Three more apps in the lab.' },
+  { year: '2026', title: 'First app in the wild', text: <span><Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link> ships: money, priced in hours. Three more apps in the lab.</span> },
   { year: 'Next', title: 'Your project?', text: 'The next milestone on this wall could be the thing you are about to build.' },
 ]
 
@@ -82,7 +83,7 @@ export default function About() {
                 product in stores in weeks, not quarters.
               </p>
               <p>
-                We work across apps and websites for brands like TimeWallet, OnPitch, Number One
+                We work across apps and websites for brands like <Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link>, OnPitch, Number One
                 Ads, zeMaps and InnoLite Technologies — spaces where a clunky interface directly
                 costs money. Our stack is deliberately boring where it should be (proven
                 frameworks, typed code, CI from day one) and bold where it counts: the part your

@@ -4,6 +4,8 @@ import Sparkle from './Sparkle.jsx'
 import SiteShot from './SiteShot.jsx'
 import TiltCard from './TiltCard.jsx'
 
+import { Link } from 'react-router-dom'
+
 function CardMedia({ project }) {
   const Icon = project.type === 'app' ? Smartphone : Globe
   return (
@@ -85,6 +87,14 @@ export default function ProjectCard({ project }) {
   )
 
   if (project.url) {
+    const isInternal = project.url.startsWith('/')
+    if (isInternal) {
+      return (
+        <Link to={project.url} className="block h-full">
+          {card}
+        </Link>
+      )
+    }
     return (
       <a href={project.url} target="_blank" rel="noopener noreferrer" className="block h-full">
         {card}

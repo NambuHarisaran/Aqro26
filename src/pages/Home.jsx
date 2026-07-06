@@ -146,7 +146,7 @@ function Hero() {
 
         <div className="mt-16 md:mt-20 flex flex-col md:flex-row md:items-end justify-between gap-10">
           <Reveal delay={0.55} className="w-full md:max-w-sm">
-            <Link to="/apps" className="group block overflow-hidden rounded-2xl card-glass">
+            <Link to="/timewallet" className="group block overflow-hidden rounded-2xl card-glass">
               <div className="relative h-40 bg-gradient-to-br from-raise to-deep overflow-hidden">
                 <Sparkle className="absolute -right-6 -bottom-6 size-32 text-amber/15 transition-transform duration-700 group-hover:rotate-45" />
                 <span className="absolute top-4 left-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-paper/80">

@@ -1,4 +1,5 @@
 import { BellRing, CloudOff, Gauge, ShieldCheck, Smartphone, Store } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PageShell from '../components/PageShell.jsx'
 import SectionTag from '../components/SectionTag.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -68,7 +69,7 @@ export default function Apps() {
             </h1>
             <p className="mt-6 max-w-xl text-mist leading-relaxed">
               We build mobile apps for iOS and Android from one codebase — designed for retention,
-              engineered for low-end devices, and shipped to both stores. TimeWallet is live; three
+              engineered for low-end devices, and shipped to both stores. <Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link> is live; three
               more are in the lab.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -126,7 +127,7 @@ export default function Apps() {
             </SplitWords>
           </h2>
           <p className="mt-4 max-w-xl text-mist">
-            TimeWallet is in the wild. The blurred ones are real builds in progress — watch this
+            <Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link> is in the wild. The blurred ones are real builds in progress — watch this
             space.
           </p>
         </Reveal>

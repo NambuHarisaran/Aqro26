@@ -5,7 +5,7 @@ export const projects = [
     name: 'TimeWallet',
     type: 'app',
     status: 'live',
-    url: null,
+    url: '/timewallet',
     sector: 'Fintech',
     year: '2026',
     blurb: 'Money-to-time budgeting app that reframes every purchase as hours of your life.',
