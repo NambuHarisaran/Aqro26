@@ -57,8 +57,8 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:hello@aqro.in" className="hover:text-paper transition-colors">
-                hello@aqro.in
+              <a href="mailto:aqroindia@gmail.com" className="hover:text-paper transition-colors">
+                aqroindia@gmail.com
               </a>
             </li>
             <li>India — working worldwide</li>

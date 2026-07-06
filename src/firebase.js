@@ -1,10 +1,10 @@
-import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore'
-import emailjs from '@emailjs/browser'
-
 /*
  * ──────────────────────────────────────────────────────────
- *  Firebase config
+ *  Firebase + EmailJS — lazy-loaded
+ *
+ *  Both SDKs are only needed when a form is actually submitted
+ *  (Contact page, TimeWallet delete-account page), so they are
+ *  dynamic-imported here and stay out of the main bundle.
  * ──────────────────────────────────────────────────────────
  */
 
@@ -17,23 +17,24 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FB_APP_ID,
 }
 
-const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
+const EMAILJS_SERVICE = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_PUBLIC = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-/*
- * ──────────────────────────────────────────────────────────
- *  EmailJS config
- *
- *  1. Sign up free at https://www.emailjs.com/
- *  2. Add Gmail as an Email Service → copy the Service ID
- *  3. Create an email template → copy the Template ID
- *  4. Copy your Public Key from Account → General
- *  5. Add the values to your .env file
- * ──────────────────────────────────────────────────────────
- */
+let dbPromise = null
 
-const EMAILJS_SERVICE  = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const EMAILJS_PUBLIC   = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+async function getDb() {
+  if (!dbPromise) {
+    dbPromise = (async () => {
+      const [{ initializeApp, getApps }, { getFirestore }] = await Promise.all([
+        import('firebase/app'),
+        import('firebase/firestore'),
+      ])
+      const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig)
+      return getFirestore(app)
+    })()
+  }
+  return dbPromise
+}
 
 /**
  * Write a form submission to Firestore AND send an email via EmailJS.
@@ -44,6 +45,11 @@ const EMAILJS_PUBLIC   = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
  * @returns {Promise<string>} — the new Firestore document ID
  */
 export async function submitForm(collectionName, data, emailTemplateId, emailParams) {
+  const [db, { collection, addDoc, serverTimestamp }] = await Promise.all([
+    getDb(),
+    import('firebase/firestore'),
+  ])
+
   // 1. Save to Firestore (backup / audit trail)
   const docRef = await addDoc(collection(db, collectionName), {
     ...data,
@@ -54,6 +60,7 @@ export async function submitForm(collectionName, data, emailTemplateId, emailPar
   // 2. Send email notification via EmailJS
   if (EMAILJS_SERVICE && emailTemplateId && EMAILJS_PUBLIC) {
     try {
+      const { default: emailjs } = await import('@emailjs/browser')
       await emailjs.send(EMAILJS_SERVICE, emailTemplateId, emailParams, EMAILJS_PUBLIC)
     } catch (emailErr) {
       // Don't fail the whole submission if email fails — data is already in Firestore
@@ -63,5 +70,3 @@ export async function submitForm(collectionName, data, emailTemplateId, emailPar
 
   return docRef.id
 }
-
-export { db }

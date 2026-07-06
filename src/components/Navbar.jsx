@@ -12,8 +12,11 @@ const links = [
   { to: '/projects', label: 'Projects' },
   { to: '/apps', label: 'Apps' },
   { to: '/webpages', label: 'Webpages' },
+  { to: '/timewallet', label: 'TimeWallet' },
   { to: '/contact', label: 'Contact' },
 ]
+
+const desktopLinks = links.filter((l) => l.to !== '/' && l.to !== '/contact')
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -44,7 +47,7 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-8">
-          {links.slice(1, 5).map((l) => (
+          {desktopLinks.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
@@ -83,7 +86,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed inset-0 top-[68px] z-40 bg-ink/95 backdrop-blur-2xl"
           >
-            <div className="flex h-full flex-col justify-between px-6 pt-10 pb-24">
+            <div className="flex h-full flex-col justify-between overflow-y-auto px-6 pt-10 pb-24">
               <div className="flex flex-col gap-2">
                 {links.map((l, i) => (
                   <motion.div
@@ -96,7 +99,7 @@ export default function Navbar() {
                       to={l.to}
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
-                        `display-tight block text-5xl py-2 transition-colors ${
+                        `display-tight block text-4xl sm:text-5xl py-2 transition-colors ${
                           isActive ? 'text-amber' : 'text-paper hover:text-amber'
                         }`
                       }
@@ -113,7 +116,7 @@ export default function Navbar() {
                 className="flex flex-col gap-3 text-mist text-sm"
               >
                 <a href="tel:+919787721111" className="hover:text-amber">+91 97877 21111</a>
-                <a href="mailto:hello@aqro.in" className="hover:text-amber">hello@aqro.in</a>
+                <a href="mailto:aqroindia@gmail.com" className="hover:text-amber">aqroindia@gmail.com</a>
               </motion.div>
             </div>
           </motion.div>

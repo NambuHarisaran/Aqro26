@@ -1,15 +1,12 @@
 import { useState } from 'react'
 import { Player } from '@remotion/player'
-import { ArrowUpRight, Play, Coins, ShieldCheck, Trash2, ShieldAlert, Clock, Info } from 'lucide-react'
+import { Coins, ShieldCheck, Clock } from 'lucide-react'
 import PageShell from '../components/PageShell.jsx'
 import SectionTag from '../components/SectionTag.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Sparkle from '../components/Sparkle.jsx'
 import ParallaxLayer from '../components/ParallaxLayer.jsx'
-import SplitWords from '../components/SplitWords.jsx'
-import TimeWalletVideo from '../components/TimeWalletVideo/TimeWalletVideo.jsx'
-import StarButton from '../components/StarButton.jsx'
-import Magnetic from '../components/Magnetic.jsx'
+import TimeWalletVideo, { TOTAL_FRAMES } from '../components/TimeWalletVideo/TimeWalletVideo.jsx'
 
 const featuresList = [
   { icon: Clock, title: 'Live hourly earnings tracker', desc: 'Watch your real wage tick up in real time while you work — overtime and taxes factored in.' },
@@ -120,7 +117,7 @@ export default function TimeWalletShowcase() {
             <div className="relative rounded-[2.5rem] overflow-hidden border border-line bg-ink/80 p-2 shadow-[0_30px_60px_-15px_rgba(242,169,59,0.15)] aspect-[4/5] sm:aspect-square md:aspect-[4/3] lg:aspect-square max-w-md mx-auto">
               <Player
                 component={TimeWalletVideo}
-                durationInFrames={300}
+                durationInFrames={TOTAL_FRAMES}
                 fps={30}
                 compositionWidth={1080}
                 compositionHeight={1350}
@@ -157,6 +154,9 @@ export default function TimeWalletShowcase() {
                 </label>
                 <input
                   type="number"
+                  inputMode="numeric"
+                  min="0"
+                  aria-label="Your monthly income in rupees"
                   value={monthlyIncome}
                   onChange={(e) => {
                     const inc = Number(e.target.value)
@@ -194,6 +194,9 @@ export default function TimeWalletShowcase() {
                   </label>
                   <input
                     type="number"
+                    inputMode="numeric"
+                    min="0"
+                    aria-label="Item price in rupees"
                     placeholder="e.g. 130000"
                     value={calcInput}
                     onChange={(e) => {
@@ -209,7 +212,7 @@ export default function TimeWalletShowcase() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="h-full flex flex-col justify-between rounded-3xl card-glass p-8 md:p-10 min-h-[380px]">
+            <div aria-live="polite" className="h-full flex flex-col justify-between rounded-3xl card-glass p-8 md:p-10 min-h-[380px]">
               {calcResult ? (
                 <div className="space-y-6 text-center my-auto">
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber">Time cost translation</span>
@@ -246,7 +249,7 @@ export default function TimeWalletShowcase() {
                         <div className="text-xs text-mist">{item.category}</div>
                         <div className="text-sm font-semibold text-paper group-hover:text-amber transition-colors mt-0.5 truncate max-w-[150px]">{item.label}</div>
                       </div>
-                      <div className="font-bold text-sm text-paper pl-2 shrink-0">₹{item.value}</div>
+                      <div className="font-bold text-sm text-paper pl-2 shrink-0">₹{item.value.toLocaleString('en-IN')}</div>
                     </button>
                   ))}
                 </div>

@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: 'Your choices',
-    text: 'You can ask us to review, update, or delete the information you shared with us by contacting hello@aqro.in.',
+    text: 'You can ask us to review, update, or delete the information you shared with us by contacting aqroindia@gmail.com.',
   },
 ]
 

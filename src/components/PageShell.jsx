@@ -6,40 +6,46 @@ const siteName = 'AQRO STUDIO'
 
 const routeMeta = {
   '/': {
-    title: 'Apps & Websites for Startups and Business',
+    title: 'App & Website Development Company in India',
     description:
-      'AQRO STUDIO designs and builds fast apps, websites, and conversion-focused digital products for startups and businesses.',
-    keywords: 'app development, website development, startup studio, fintech, e-commerce, edtech, React, Flutter',
+      'AQRO STUDIO is an app & website development company in India building fast Flutter mobile apps, React websites, and conversion-focused digital products for startups and businesses.',
+    keywords:
+      'app development company India, website development company India, mobile app development, Flutter app development, React website development, hire app developers India, startup app development, UI UX design studio, AQRO STUDIO',
   },
   '/about': {
     title: 'About the Studio',
     description:
-      'Learn how AQRO STUDIO builds focused mobile apps and websites with a small team, fast delivery, and direct communication.',
-    keywords: 'about AQRO STUDIO, digital product studio, app and website agency',
+      'Learn how AQRO STUDIO builds focused mobile apps and websites with a small team, fast delivery, and direct communication. Based in India, working worldwide.',
+    keywords:
+      'about AQRO STUDIO, digital product studio India, app and website agency, small development team, app studio India',
   },
   '/projects': {
     title: 'Projects and Case Studies',
     description:
-      'Browse live AQRO STUDIO projects across fintech, advertising, mapping, and education.',
-    keywords: 'project portfolio, case studies, live websites, live apps',
+      'Browse live AQRO STUDIO projects across fintech, e-commerce, advertising, mapping, and education — real apps and websites in production.',
+    keywords:
+      'app development portfolio, website development portfolio, case studies, live websites, live apps, fintech app examples, e-commerce website examples',
   },
   '/apps': {
-    title: 'Mobile App Development',
+    title: 'Mobile App Development — Flutter, iOS & Android',
     description:
-      'AQRO STUDIO builds mobile apps for iOS and Android with Flutter and modern product thinking.',
-    keywords: 'mobile app development, Flutter apps, iOS, Android, product design',
+      'AQRO STUDIO builds cross-platform mobile apps for iOS and Android with Flutter — offline-first, secure, 60fps, and launched to both app stores for you.',
+    keywords:
+      'mobile app development India, Flutter app development company, iOS app development, Android app development, cross-platform apps, hire Flutter developers, app store launch, MVP app development',
   },
   '/webpages': {
-    title: 'Website Development',
+    title: 'Website Development — Fast, SEO-Ready & Converting',
     description:
-      'AQRO STUDIO builds SEO-ready websites and web apps that convert visitors into customers.',
-    keywords: 'website development, SEO websites, React websites, web apps, landing pages',
+      'AQRO STUDIO builds SEO-ready websites and web apps with React and Next.js — 90+ Lighthouse scores, e-commerce with Razorpay/Stripe, and designs that convert visitors into customers.',
+    keywords:
+      'website development India, React website development, Next.js development company, SEO website design, e-commerce website development, landing page design, business website India, Razorpay integration',
   },
   '/contact': {
-    title: 'Contact the Studio',
+    title: 'Contact the Studio — Free Consultation',
     description:
-      'Contact AQRO STUDIO to discuss your app or website project and get a fast, honest consultation.',
-    keywords: 'contact AQRO STUDIO, request a quote, app consultation, website consultation',
+      'Contact AQRO STUDIO to discuss your app or website project. Free first consultation, honest advice, and a reply within 24 hours — call, WhatsApp, or email aqroindia@gmail.com.',
+    keywords:
+      'contact AQRO STUDIO, hire app developer India, request a quote, free app consultation, free website consultation, WhatsApp app developer',
   },
   '/privacy-policy': {
     title: 'Privacy Policy',
@@ -58,8 +64,10 @@ const routeMeta = {
   },
   '/timewallet': {
     title: 'TimeWallet — Save Your Time',
-    description: 'TimeWallet converts every rupee you spend into the work-time it actually cost you. Save your time the way you save your money.',
-    keywords: 'TimeWallet, money to time converter, time cost tracker, personal finance app',
+    description:
+      'TimeWallet converts every rupee you spend into the work-time it actually cost you. Live hourly earnings, expense-to-hours converter, and 100% on-device privacy. Free on Google Play.',
+    keywords:
+      'TimeWallet app, money to time converter, time cost calculator, hourly wage calculator, expense tracker India, personal finance app India, budgeting app, stop impulse spending, UPI expense tracker, download TimeWallet Android',
   },
   '/terms': {
     title: 'Terms and Conditions',
@@ -157,19 +165,39 @@ export default function PageShell({ title, description, children, className = ''
       name: siteName,
       url: window.location.origin,
       logo: `${window.location.origin}/transparent.png`,
-      sameAs: [],
+      email: 'aqroindia@gmail.com',
+      telephone: '+91-97877-21111',
+      address: { '@type': 'PostalAddress', addressCountry: 'IN' },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+91-97877-21111',
+        email: 'aqroindia@gmail.com',
+        contactType: 'customer service',
+      },
     })
     upsertJsonLd('website', {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: siteName,
       url: window.location.origin,
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: `${window.location.origin}/projects`,
-        'query-input': 'required name=search_term_string',
-      },
     })
+    if (pathname === '/timewallet') {
+      upsertJsonLd('app', {
+        '@context': 'https://schema.org',
+        '@type': 'MobileApplication',
+        name: 'TimeWallet',
+        operatingSystem: 'Android',
+        applicationCategory: 'FinanceApplication',
+        description:
+          'TimeWallet converts every rupee you spend into the work-time it actually cost you — live hourly earnings, expense-to-hours conversion, and on-device privacy.',
+        installUrl: 'https://play.google.com/store/apps/details?id=in.no1ads.timewallet',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        author: { '@type': 'Organization', name: siteName, url: window.location.origin },
+      })
+    } else {
+      const stale = document.head.querySelector('script[data-seo-id="app"]')
+      if (stale) stale.remove()
+    }
   }, [description, pathname, title])
 
   return (

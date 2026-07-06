@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, CheckCircle, Clock, Loader2, Mail, MapPin, Phone, AlertTriangle } from 'lucide-react'
+import { ArrowUpRight, CheckCircle, Clock, Loader2, Mail, MapPin, MessageCircle, Phone, AlertTriangle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageShell from '../components/PageShell.jsx'
 import SectionTag from '../components/SectionTag.jsx'
@@ -10,8 +10,9 @@ import SplitWords from '../components/SplitWords.jsx'
 import { submitForm } from '../firebase.js'
 
 const channels = [
-  { icon: Phone, label: 'Call or WhatsApp', value: '+91 97877 21111', href: 'tel:+919787721111' },
-  { icon: Mail, label: 'Email', value: 'hello@aqro.in', href: 'mailto:hello@aqro.in' },
+  { icon: Phone, label: 'Call us', value: '+91 97877 21111', href: 'tel:+919787721111' },
+  { icon: MessageCircle, label: 'WhatsApp', value: '+91 97877 21111', href: 'https://wa.me/919787721111?text=Hi%20AQRO%20STUDIO%2C%20I%20have%20a%20project%20idea.' },
+  { icon: Mail, label: 'Email', value: 'aqroindia@gmail.com', href: 'mailto:aqroindia@gmail.com' },
   { icon: MapPin, label: 'Based in', value: 'India — working worldwide', href: null },
   { icon: Clock, label: 'Response time', value: 'Within 24 hours', href: null },
 ]
@@ -152,13 +153,13 @@ export default function Contact() {
                       <label htmlFor="name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-mist">
                         Your name
                       </label>
-                      <input id="name" required value={form.name} onChange={set('name')} placeholder="Bart Kolenda" className={inputCls} disabled={status === 'loading'} />
+                      <input id="name" required autoComplete="name" value={form.name} onChange={set('name')} placeholder="Bart Kolenda" className={inputCls} disabled={status === 'loading'} />
                     </div>
                     <div>
                       <label htmlFor="email" className="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-mist">
                         Email
                       </label>
-                      <input id="email" type="email" required value={form.email} onChange={set('email')} placeholder="you@company.com" className={inputCls} disabled={status === 'loading'} />
+                      <input id="email" type="email" required autoComplete="email" value={form.email} onChange={set('email')} placeholder="you@company.com" className={inputCls} disabled={status === 'loading'} />
                     </div>
                   </div>
 
@@ -254,9 +255,16 @@ export default function Contact() {
                   </div>
                 </div>
               )
+              const external = c.href && c.href.startsWith('http')
               return (
                 <Reveal key={c.label} delay={i * 0.08}>
-                  {c.href ? <a href={c.href}>{body}</a> : body}
+                  {c.href ? (
+                    <a href={c.href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+                      {body}
+                    </a>
+                  ) : (
+                    body
+                  )}
                 </Reveal>
               )
             })}
@@ -270,6 +278,15 @@ export default function Contact() {
                   WhatsApp us a voice note describing your idea. We'll reply with questions, a rough
                   timeline and a ballpark — usually same day.
                 </p>
+                <a
+                  href="https://wa.me/919787721111?text=Hi%20AQRO%20STUDIO%2C%20here%27s%20my%20idea%3A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber hover:text-ember transition-colors"
+                >
+                  <MessageCircle className="size-4" />
+                  Open WhatsApp chat
+                </a>
               </div>
             </Reveal>
           </div>

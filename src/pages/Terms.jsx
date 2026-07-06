@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: 'Contact',
-    text: 'Questions about these terms can be sent to hello@aqro.in.',
+    text: 'Questions about these terms can be sent to aqroindia@gmail.com.',
   },
 ]
 
