@@ -112,10 +112,6 @@ export default function TimeWalletShowcase() {
                   Coming Soon
                 </span>
               </div>
-
-              <StarButton to="/timewallet/delete-account" variant="ghost">
-                Account Deletion Request
-              </StarButton>
             </div>
           </Reveal>
 

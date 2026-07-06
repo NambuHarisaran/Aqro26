@@ -24,31 +24,6 @@ export const projects = [
     stack: ['Flutter'],
     hue: 'from-raise to-deep',
   },
-  {
-    id: 'app-soon-2',
-    name: 'FitPulse',
-    type: 'app',
-    status: 'soon',
-    url: null,
-    sector: 'Fitness',
-    year: '2026',
-    blurb: 'Offline-first workout tracking. In the lab now.',
-    stack: ['Flutter'],
-    hue: 'from-raise to-deep',
-  },
-  {
-    id: 'app-soon-3',
-    name: 'Farm2Door',
-    type: 'app',
-    status: 'soon',
-    url: null,
-    sector: 'E-commerce',
-    year: '2026',
-    blurb: 'Farm-fresh delivery, route-optimised. In the lab now.',
-    stack: ['Flutter'],
-    hue: 'from-raise to-deep',
-  },
-
   // ---- Web: all live, all real ----
   {
     id: 'onpitch',

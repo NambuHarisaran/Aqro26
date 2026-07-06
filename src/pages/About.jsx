@@ -37,7 +37,7 @@ const values = [
 const milestones = [
   { year: '2025', title: 'The spark', text: 'AQRO STUDIO starts as a two-person crew shipping landing pages from India.' },
   { year: '2025', title: 'First sites live', text: 'OnPitch, SkyLoan and Pandam Store launch — real products, real users.' },
-  { year: '2026', title: 'First app in the wild', text: <span><Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link> ships: money, priced in hours. Three more apps in the lab.</span> },
+  { year: '2026', title: 'First app in the wild', text: <span><Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link> ships: money, priced in hours. One more app in the lab.</span> },
   { year: 'Next', title: 'Your project?', text: 'The next milestone on this wall could be the thing you are about to build.' },
 ]
 

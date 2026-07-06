@@ -69,7 +69,7 @@ export default function Apps() {
             </h1>
             <p className="mt-6 max-w-xl text-mist leading-relaxed">
               We build mobile apps for iOS and Android from one codebase — designed for retention,
-              engineered for low-end devices. Our first product, <Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link>, is live on Google Play Store (App Store coming soon), with three more in the lab.
+              engineered for low-end devices. Our first product, <Link to="/timewallet" className="text-amber hover:underline">TimeWallet</Link>, is live on Google Play Store (App Store coming soon), with one more in the lab.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Magnetic>
