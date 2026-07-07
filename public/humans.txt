@@ -1,0 +1,62 @@
+/* HUMANS.TXT */
+/* The humans.txt file is about acknowledging the people behind a website. */
+
+---
+
+Organization: AQRO Digital Studio
+
+URL: https://aqro.in
+
+---
+
+/* TEAM */
+
+Role: Founder & Lead Developer
+Name: Nambu Harisaran
+Expertise: Full-stack development, Digital innovation, Product design
+
+---
+
+/* TECHNOLOGY */
+
+Frontend Stack: React 19, Vite, Tailwind CSS, Framer Motion
+Mobile Stack: Flutter, Riverpod
+Backend Stack: Firebase, Firestore
+Animation: Framer Motion, Remotion, Lenis Scroll
+UI: Lucide React, Custom components
+Deployment: Vercel, Firebase Hosting
+
+---
+
+/* STANDARDS */
+
+HTML5: Yes
+CSS3: Yes
+Responsive Design: Yes
+Mobile-First: Yes
+Accessibility: WCAG 2.1 AA
+Performance: Optimized with Vite
+
+---
+
+/* PHILOSOPHY */
+
+We believe in creating elegant, high-performance digital experiences that solve real-world problems. Our work spans fintech, edtech, healthcare, and startup enablement.
+
+Every pixel, interaction, and feature is crafted with intention and care.
+
+---
+
+/* CONTACT */
+
+For project inquiries and collaboration:
+Visit: https://aqro.in/contact
+
+---
+
+/* LICENSE */
+
+Content © 2025-2026 AQRO Digital Studio
+All rights reserved.
+
+Last Updated: 2026-07-07

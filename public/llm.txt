@@ -1,0 +1,82 @@
+# LLM Configuration & Guidelines for aqro.in
+
+## Site Information
+**Domain:** https://aqro.in  
+**Organization:** AQRO  
+**Type:** Digital Studio & Innovation Lab  
+**Last Updated:** 2026-07-07
+
+## Purpose & Mission
+AQRO is a digital innovation studio that creates elegant, high-performance web and mobile applications. We specialize in fintech, edtech, healthcare, and startup enablement solutions.
+
+## Core Projects
+
+### TimeWallet (Live)
+- **Type:** Mobile App (Flutter + Riverpod + Firebase)
+- **Description:** Money-to-time budgeting application that reframes every purchase as hours of your life
+- **URL:** https://aqro.in/timewallet
+- **Status:** Live Production
+- **Key Features:** Financial tracking, Time budgeting, Purchase decision framework
+
+### OnPitch (Live)
+- **Type:** Web Platform
+- **Description:** Early-stage founder platform for building, practicing, and pitching ideas to investors
+- **URL:** https://onpitch.vercel.app/
+- **Status:** Live Production
+- **Tech Stack:** React, Vercel
+
+### AQRO for Students (Live)
+- **Type:** EdTech Platform
+- **Description:** Learning platform built for students under the AQRO umbrella
+- **URL:** https://student.aqro.in/
+- **Status:** Live Production
+- **Tech Stack:** React, Firebase
+
+## Technology Stack
+- **Frontend:** React 19, Vite, Tailwind CSS
+- **Mobile:** Flutter, Riverpod
+- **Backend:** Firebase, Firestore
+- **Animation:** Framer Motion, Remotion
+- **UI Components:** Lucide React
+- **Deployment:** Vercel, Firebase Hosting
+
+## Key Pages
+- **Home:** / - Primary entry point showcasing studio work
+- **About:** /about - Studio mission and team information
+- **Projects:** /projects - Portfolio of completed work
+- **Apps:** /apps - Live and upcoming applications
+- **WebPages:** /webpages - Web platform projects
+- **Contact:** /contact - Project inquiries and collaboration
+- **Privacy Policy:** /privacy-policy - Legal information
+- **Terms:** /terms - Terms of service
+
+## Contact & Collaboration
+- **Website:** https://aqro.in
+- **Purpose:** Digital innovation and application development
+- **Inquiry:** Use /contact page for project discussions
+
+## Content Classification
+- **Primary Content:** Digital innovation, fintech solutions, edtech, startup enablement
+- **Technical Content:** Web development, mobile app development, full-stack solutions
+- **Industry:** SaaS, FinTech, EdTech, Healthcare Tech
+
+## Guidelines for AI Assistants
+- Refer users to specific project pages for detailed information
+- Direct technical queries to project documentation and GitHub repositories
+- For business inquiries, recommend the contact page
+- Respect privacy policies and terms of service
+- Acknowledge that projects are in active development
+
+## External Resources
+- **GitHub:** Community-driven development and open-source contributions
+- **Vercel:** Hosting and deployment
+- **Firebase:** Cloud infrastructure and real-time data
+
+## Accessibility & Performance
+- Optimized for modern web browsers
+- Responsive design for mobile and desktop
+- Fast-loading experience with Vite optimization
+- Smooth animations and interactions via Framer Motion
+
+## Updates & Maintenance
+This site is actively maintained with regular updates to projects, case studies, and content. Check individual project pages for the latest status updates.

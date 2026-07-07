@@ -1,0 +1,54 @@
+{
+  "siteTitle": "AQRO - Digital Innovation Studio",
+  "siteDescription": "AQRO is a digital innovation studio creating elegant, high-performance web and mobile applications. Specializing in fintech, edtech, healthcare, and startup enablement solutions.",
+  "siteUrl": "https://aqro.in",
+  "socialMeta": {
+    "twitter": "@aqro",
+    "email": "contact@aqro.in"
+  },
+  "keywords": [
+    "digital studio",
+    "web development",
+    "mobile apps",
+    "fintech",
+    "edtech",
+    "React",
+    "Flutter",
+    "Firebase",
+    "innovation",
+    "startup",
+    "technology"
+  ],
+  "pages": {
+    "home": {
+      "title": "AQRO - Digital Innovation Studio",
+      "description": "AQRO creates elegant, high-performance web and mobile applications. Explore our portfolio of fintech, edtech, and startup solutions.",
+      "keywords": "digital studio, web development, mobile apps, innovation"
+    },
+    "about": {
+      "title": "About AQRO - Our Mission & Vision",
+      "description": "Learn about AQRO's approach to digital innovation and our commitment to creating solutions that matter.",
+      "keywords": "about, mission, vision, team, digital innovation"
+    },
+    "projects": {
+      "title": "Our Projects - AQRO Portfolio",
+      "description": "Explore AQRO's portfolio of completed web and mobile projects across fintech, edtech, and startup sectors.",
+      "keywords": "portfolio, projects, case studies, web development"
+    },
+    "apps": {
+      "title": "AQRO Apps - Live & Upcoming",
+      "description": "Discover AQRO's mobile and web applications including TimeWallet, MediQueue, OnPitch, and more.",
+      "keywords": "apps, applications, TimeWallet, fintech, mobile"
+    },
+    "timewallet": {
+      "title": "TimeWallet - Money-to-Time Budgeting App",
+      "description": "Reframe every purchase as hours of your life. TimeWallet is a revolutionary fintech app that helps you make better financial decisions.",
+      "keywords": "TimeWallet, budgeting, fintech, money management, app"
+    },
+    "contact": {
+      "title": "Contact AQRO - Let's Build Something Great",
+      "description": "Have a project in mind? Get in touch with AQRO for web development, mobile apps, or digital innovation consultations.",
+      "keywords": "contact, inquiry, project, collaboration"
+    }
+  }
+}
