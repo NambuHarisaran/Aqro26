@@ -119,7 +119,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   line-height: 0.92;
-  text-wrap: balance;
 }
 
 @utility text-stroke-faint {
