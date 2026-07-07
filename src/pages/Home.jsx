@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Smartphone, Globe, ArrowUpRight, PenTool, Rocket, Search, Wrench, Clock } from 'lucide-react'
@@ -16,6 +16,8 @@ import ProjectCard from '../components/ProjectCard.jsx'
 import Magnetic from '../components/Magnetic.jsx'
 import SplitWords from '../components/SplitWords.jsx'
 import { projects, sectors } from '../data/projects.js'
+
+const StudioFilmPlayer = lazy(() => import('../components/StudioStoryVideo/StudioFilmPlayer.jsx'))
 
 const stats = [
   { end: 6, suffix: '', label: 'Products live' },
@@ -274,6 +276,34 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* Studio story film */}
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-16 md:py-24">
+        <Reveal>
+          <SectionTag>The story</SectionTag>
+          <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
+            <SplitWords>
+              Spark to <span className="text-amber">orbit</span>
+            </SplitWords>
+          </h2>
+          <p className="mt-4 max-w-xl text-mist leading-relaxed">
+            The AQRO story in 25 seconds — how an idea becomes a product people can download.
+          </p>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <div className="mt-10 md:mt-14 aspect-video overflow-hidden rounded-3xl card-glass">
+            <Suspense
+              fallback={
+                <div className="flex h-full items-center justify-center text-xs uppercase tracking-[0.3em] text-mist">
+                  Loading film…
+                </div>
+              }
+            >
+              <StudioFilmPlayer />
+            </Suspense>
+          </div>
+        </Reveal>
       </section>
 
       {/* Selected work */}
