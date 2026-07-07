@@ -64,7 +64,7 @@ export default function TimeWalletShowcase() {
   return (
     <PageShell title="TimeWallet — Save Your Time">
       {/* ───── Hero ───── */}
-      <section className="relative overflow-hidden pt-40 pb-20">
+      <section className="relative overflow-hidden pt-32 md:pt-40 pb-14 md:pb-20">
         <ParallaxLayer speed={45} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-12 left-[5%] size-36 text-raise/50 animate-float" />
           <Sparkle className="absolute bottom-8 right-[8%] size-20 text-amber/20" />
@@ -74,16 +74,16 @@ export default function TimeWalletShowcase() {
           <Reveal>
             <SectionTag>Featured App</SectionTag>
             <div className="mt-4 flex items-center gap-4">
-              <TimeWalletLogo className="size-20 shrink-0 text-paper md:size-24 drop-shadow-[0_0_18px_rgba(255,255,255,0.15)]" />
+              <TimeWalletLogo className="size-16 sm:size-20 shrink-0 text-paper md:size-24 drop-shadow-[0_0_18px_rgba(255,255,255,0.15)]" />
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-mist/70">TimeWallet</p>
                 <p className="mt-2 text-sm font-medium uppercase tracking-[0.28em] text-amber">Save Your Time</p>
               </div>
             </div>
-            <h1 className="display-tight mt-4 text-6xl md:text-8xl">
+            <h1 className="display-tight mt-4 text-[2.7rem] leading-[0.92] sm:text-6xl md:text-8xl">
               TIME<span className="text-amber">WALLET.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-mist leading-relaxed text-lg">
+            <p className="mt-6 max-w-xl text-mist leading-relaxed text-base md:text-lg">
               Save your time the way you save your money. TimeWallet re-prices your life-decisions in 
               <strong> hours worked</strong> instead of abstract currency. A ₹1,500 buy isn't just money — it's half a work-day.
             </p>
@@ -148,7 +148,7 @@ export default function TimeWalletShowcase() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <SectionTag>Interactive Calculator</SectionTag>
-            <h2 className="display-tight mt-4 text-4xl md:text-5xl">
+            <h2 className="display-tight mt-4 text-3xl sm:text-4xl md:text-5xl">
               What is a purchase <span className="text-amber">really costing you?</span>
             </h2>
             <p className="mt-4 text-mist leading-relaxed">
@@ -220,11 +220,11 @@ export default function TimeWalletShowcase() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div aria-live="polite" className="h-full flex flex-col justify-between rounded-3xl card-glass p-8 md:p-10 min-h-[380px]">
+            <div aria-live="polite" className="h-full flex flex-col justify-between rounded-3xl card-glass p-6 sm:p-8 md:p-10 min-h-[380px]">
               {calcResult ? (
                 <div className="space-y-6 text-center my-auto">
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber">Time cost translation</span>
-                  <div className="text-5xl md:text-6xl font-bold text-paper font-sans tracking-tight">
+                  <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-paper font-sans tracking-tight">
                     {calcResult.days > 0 && <span>{calcResult.days}d </span>}
                     {calcResult.hours > 0 || calcResult.days > 0 ? <span>{calcResult.hours}h </span> : null}
                     <span>{calcResult.minutes}m</span>
@@ -268,15 +268,15 @@ export default function TimeWalletShowcase() {
       </section>
 
       {/* ───── Features Grid ───── */}
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-20 pb-28">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-14 md:py-20 pb-20 md:pb-28">
         <Reveal>
           <SectionTag>Core Features</SectionTag>
-          <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+          <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
             Built to buy back <span className="text-amber">your life.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 md:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuresList.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.08}>
               <div className="h-full rounded-3xl border border-line p-8 transition-all duration-300 hover:border-amber/35 hover:-translate-y-1 hover:bg-surface/10">

@@ -25,10 +25,10 @@ const sections = [
 export default function Terms() {
   return (
     <PageShell title="Terms & Conditions">
-      <section className="mx-auto max-w-4xl px-5 md:px-10 pt-40 pb-24">
+      <section className="mx-auto max-w-4xl px-5 md:px-10 pt-32 md:pt-40 pb-16 md:pb-24">
         <Reveal>
           <SectionTag>Terms & Conditions</SectionTag>
-          <h1 className="display-tight mt-4 text-6xl md:text-8xl">
+          <h1 className="display-tight mt-4 text-5xl sm:text-6xl md:text-8xl">
             <SplitWords>Simple rules. Clear work.</SplitWords>
           </h1>
           <p className="mt-6 text-mist leading-relaxed">
@@ -36,12 +36,12 @@ export default function Terms() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6">
+        <div className="mt-10 md:mt-14 grid gap-6">
           {sections.map((section, index) => (
             <Reveal key={section.title} delay={index * 0.08}>
-              <div className="rounded-3xl border border-line p-7">
+              <div className="rounded-3xl border border-line p-6 sm:p-7">
                 <h2 className="display-tight text-2xl text-amber">{section.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-mist">{section.text}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-mist">{section.text}</p>
               </div>
             </Reveal>
           ))}

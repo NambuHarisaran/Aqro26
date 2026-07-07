@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 // Headline reveal: each word rises out of its own clip mask.
@@ -23,17 +23,21 @@ export default function SplitWords({ children, delay = 0, stagger = 0.06, classN
   return (
     <span ref={ref} className={className}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-bottom">
-          <motion.span
-            className="inline-block"
-            initial={{ y: '110%' }}
-            animate={inView ? { y: 0 } : { y: '110%' }}
-            transition={{ duration: 0.7, delay: delay + i * stagger, ease: [0.21, 0.65, 0.32, 1] }}
-          >
-            {word}
-          </motion.span>
+        <Fragment key={i}>
+          <span className="inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-bottom">
+            <motion.span
+              className="inline-block"
+              initial={{ y: '110%' }}
+              animate={inView ? { y: 0 } : { y: '110%' }}
+              transition={{ duration: 0.7, delay: delay + i * stagger, ease: [0.21, 0.65, 0.32, 1] }}
+            >
+              {word}
+            </motion.span>
+          </span>
+          {/* separator must live OUTSIDE the overflow-hidden inline-block —
+              trailing whitespace inside an inline-block is trimmed by CSS */}
           {i < words.length - 1 && ' '}
-        </span>
+        </Fragment>
       ))}
     </span>
   )

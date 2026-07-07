@@ -44,7 +44,7 @@ const milestones = [
 export default function About() {
   return (
     <PageShell title="About">
-      <section className="relative overflow-hidden pt-40 pb-20">
+      <section className="relative overflow-hidden pt-32 md:pt-40 pb-14 md:pb-20">
         <ParallaxLayer speed={50} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-10 right-[6%] size-52 text-raise/60 animate-float" />
           <Sparkle className="absolute bottom-0 left-[8%] size-16 text-amber/40" />
@@ -52,14 +52,14 @@ export default function About() {
         <div className="relative mx-auto max-w-7xl px-5 md:px-10">
           <Reveal>
             <SectionTag>About us</SectionTag>
-            <h1 className="display-tight mt-4 text-6xl md:text-8xl lg:text-9xl max-w-5xl">
+            <h1 className="display-tight mt-4 text-5xl sm:text-6xl md:text-8xl lg:text-9xl max-w-5xl">
               <SplitWords>
                 Small studio. <span className="text-amber">Serious products.</span>
               </SplitWords>
             </h1>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-mist">
+            <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-lg leading-relaxed text-mist">
               AQRO STUDIO is a digital product studio focused on two things: mobile apps and
               websites. No bloated retainers, no hand-offs between six departments — the people you
               talk to are the people who design and build your product.
@@ -70,8 +70,8 @@ export default function About() {
 
       <VelocityText text="Design · Code · Ship" />
 
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-20">
-        <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr]">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-14 md:py-20">
+        <div className="grid gap-12 lg:gap-16 lg:grid-cols-[1.1fr_1fr]">
           <Reveal>
             <SectionTag>The story</SectionTag>
             <h2 className="display-tight mt-4 text-4xl md:text-6xl">Why AQRO exists</h2>
@@ -96,7 +96,7 @@ export default function About() {
             </div>
           </Reveal>
 
-          <div className="grid content-start gap-5 sm:grid-cols-2">
+          <div className="grid content-start grid-cols-2 gap-4 sm:gap-5">
             {[
               { end: 6, suffix: '', label: 'Products live' },
               { end: 2, suffix: '', label: 'Years running' },
@@ -104,8 +104,8 @@ export default function About() {
               { end: 24, suffix: 'h', label: 'Reply time' },
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 0.08}>
-                <div className="rounded-3xl card-glass p-7 text-center">
-                  <p className="display-tight text-5xl text-amber">
+                <div className="rounded-3xl card-glass p-4 sm:p-7 text-center">
+                  <p className="display-tight text-4xl sm:text-5xl text-amber">
                     <CountUp end={s.end} suffix={s.suffix} />
                   </p>
                   <p className="mt-2 text-xs uppercase tracking-[0.25em] text-mist">{s.label}</p>
@@ -116,15 +116,15 @@ export default function About() {
         </div>
       </section>
 
-      <section className="border-y border-line bg-deep/30 py-24">
+      <section className="border-y border-line bg-deep/30 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-5 md:px-10">
           <Reveal>
             <SectionTag>Values</SectionTag>
-            <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+            <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
               <SplitWords>What we won't compromise</SplitWords>
             </h2>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 md:mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.1}>
                 <div className="h-full rounded-3xl border border-line p-7 transition-colors hover:border-amber/40">
@@ -138,14 +138,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-24">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-16 md:py-24">
         <Reveal>
           <SectionTag>Timeline</SectionTag>
-          <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+          <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
             <SplitWords>Short history, steep curve</SplitWords>
           </h2>
         </Reveal>
-        <div className="mt-14 grid gap-6 md:grid-cols-4">
+        <div className="mt-10 md:mt-14 grid gap-6 md:grid-cols-4">
           {milestones.map((m, i) => (
             <Reveal key={m.title} delay={i * 0.1}>
               <div className="h-full rounded-3xl card-glass p-7">
@@ -158,9 +158,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="pb-28 text-center">
+      <section className="px-5 pb-20 md:pb-28 text-center">
         <Reveal>
-          <h2 className="display-tight text-5xl md:text-7xl">
+          <h2 className="display-tight text-4xl sm:text-5xl md:text-7xl">
             Sound like your kind of <span className="text-amber">team?</span>
           </h2>
           <div className="mt-10">

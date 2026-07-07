@@ -36,6 +36,7 @@ export default function Navbar() {
   }, [open])
 
   return (
+    <>
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled ? 'bg-ink/80 backdrop-blur-xl border-b border-line' : 'bg-transparent'
@@ -70,13 +71,17 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="lg:hidden grid size-10 place-items-center rounded-full border border-mist/25 text-paper"
+          className="lg:hidden grid size-11 place-items-center rounded-full border border-mist/25 text-paper"
           aria-label={open ? 'Close menu' : 'Open menu'}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </nav>
+    </header>
 
+      {/* overlay lives OUTSIDE <header> — its backdrop-filter (when scrolled)
+          would otherwise become the containing block for this fixed panel
+          and collapse it to zero height */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -84,7 +89,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-0 top-[68px] z-40 bg-ink/95 backdrop-blur-2xl"
+            className="lg:hidden fixed inset-0 top-[76px] z-40 bg-ink/95 backdrop-blur-2xl"
           >
             <div className="flex h-full flex-col justify-between overflow-y-auto px-6 pt-10 pb-24">
               <div className="flex flex-col gap-2">
@@ -122,6 +127,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }

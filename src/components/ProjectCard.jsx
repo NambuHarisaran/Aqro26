@@ -52,7 +52,7 @@ export default function ProjectCard({ project }) {
     return (
       <TiltCard max={4} className="h-full">
         <SpotlightCard className="h-full">
-          <div className="relative flex h-full flex-col p-7" aria-label={`${project.name} — coming soon`}>
+          <div className="relative flex h-full flex-col p-5 sm:p-7" aria-label={`${project.name} — coming soon`}>
             <CardMedia project={project} />
             <CardBody project={project} linked={false} />
 
@@ -78,7 +78,7 @@ export default function ProjectCard({ project }) {
   const card = (
     <TiltCard max={6} className="h-full">
       <SpotlightCard className="group h-full">
-        <div className="flex h-full flex-col p-7">
+        <div className="flex h-full flex-col p-5 sm:p-7">
           <CardMedia project={project} />
           <CardBody project={project} linked />
         </div>

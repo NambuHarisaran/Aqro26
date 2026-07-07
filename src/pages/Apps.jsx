@@ -55,14 +55,14 @@ export default function Apps() {
 
   return (
     <PageShell title="Apps">
-      <section className="relative overflow-hidden pt-40 pb-20">
+      <section className="relative overflow-hidden pt-32 md:pt-40 pb-14 md:pb-20">
         <ParallaxLayer speed={50} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-16 left-[4%] size-40 text-raise/60 animate-float" />
         </ParallaxLayer>
-        <div className="relative mx-auto max-w-7xl px-5 md:px-10 grid items-center gap-16 lg:grid-cols-[1.2fr_1fr]">
+        <div className="relative mx-auto max-w-7xl px-5 md:px-10 grid items-center gap-12 lg:gap-16 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <SectionTag>App development</SectionTag>
-            <h1 className="display-tight mt-4 text-6xl md:text-8xl">
+            <h1 className="display-tight mt-4 text-5xl sm:text-6xl md:text-8xl">
               <SplitWords>
                 Apps people <span className="text-amber">keep.</span>
               </SplitWords>
@@ -95,14 +95,14 @@ export default function Apps() {
         fast
       />
 
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-24">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-16 md:py-24">
         <Reveal>
           <SectionTag>Capabilities</SectionTag>
-          <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+          <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
             <SplitWords>Built in as standard</SplitWords>
           </h2>
         </Reveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 md:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {capabilities.map((c, i) => (
             <Reveal key={c.title} delay={(i % 3) * 0.08}>
               <div className="h-full rounded-3xl border border-line p-7 transition-colors hover:border-amber/40">
@@ -117,10 +117,10 @@ export default function Apps() {
 
       <VelocityText text="iOS · Android" />
 
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-20 pb-28">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-14 md:py-20 pb-20 md:pb-28">
         <Reveal>
           <SectionTag>App projects</SectionTag>
-          <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+          <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
             <SplitWords>
               One live. <span className="text-amber">More loading.</span>
             </SplitWords>
@@ -130,14 +130,14 @@ export default function Apps() {
             space.
           </p>
         </Reveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 md:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {appProjects.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08} className="h-full">
               <ProjectCard project={p} />
             </Reveal>
           ))}
         </div>
-        <div className="mt-16 text-center">
+        <div className="mt-12 md:mt-16 text-center">
           <Magnetic>
             <StarButton to="/contact">Get a free app consultation</StarButton>
           </Magnetic>

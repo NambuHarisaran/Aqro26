@@ -68,7 +68,7 @@ export default function Contact() {
 
   return (
     <PageShell title="Contact">
-      <section className="relative overflow-hidden pt-40 pb-16">
+      <section className="relative overflow-hidden pt-32 md:pt-40 pb-12 md:pb-16">
         <ParallaxLayer speed={45} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-8 right-[8%] size-48 text-raise/60 animate-float" />
           <Sparkle className="absolute bottom-0 left-[6%] size-14 text-amber/40" />
@@ -76,7 +76,7 @@ export default function Contact() {
         <div className="relative mx-auto max-w-7xl px-5 md:px-10">
           <Reveal>
             <SectionTag>Contact</SectionTag>
-            <h1 className="display-tight mt-4 text-6xl md:text-8xl lg:text-9xl">
+            <h1 className="display-tight mt-4 text-5xl sm:text-6xl md:text-8xl lg:text-9xl">
               <SplitWords>
                 Say <span className="text-amber">hello.</span>
               </SplitWords>
@@ -89,7 +89,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 md:px-10 pb-28">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 pb-20 md:pb-28">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
           <Reveal>
             <AnimatePresence mode="wait">
@@ -99,7 +99,7 @@ export default function Contact() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: [0.21, 0.65, 0.32, 1] }}
-                  className="rounded-3xl card-glass p-10 md:p-14 flex flex-col items-center justify-center text-center min-h-[460px]"
+                  className="rounded-3xl card-glass p-7 sm:p-10 md:p-14 flex flex-col items-center justify-center text-center min-h-[420px] md:min-h-[460px]"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
@@ -146,7 +146,7 @@ export default function Contact() {
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.3 }}
                   onSubmit={submit}
-                  className="rounded-3xl card-glass p-7 md:p-10 space-y-6"
+                  className="rounded-3xl card-glass p-5 sm:p-7 md:p-10 space-y-6"
                 >
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div>

@@ -84,6 +84,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* custom cursor active on precise pointers — keep text caret in fields */
@@ -118,6 +119,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   line-height: 0.92;
+  text-wrap: balance;
 }
 
 @utility text-stroke-faint {

@@ -57,10 +57,10 @@ const sections = [
 export default function TimeWalletPrivacyPolicy() {
   return (
     <PageShell title="TimeWallet Privacy Policy">
-      <section className="mx-auto max-w-4xl px-5 md:px-10 pt-40 pb-24">
+      <section className="mx-auto max-w-4xl px-5 md:px-10 pt-32 md:pt-40 pb-16 md:pb-24">
         <Reveal>
           <SectionTag>TimeWallet</SectionTag>
-          <h1 className="display-tight mt-4 text-6xl md:text-8xl">
+          <h1 className="display-tight mt-4 text-5xl sm:text-6xl md:text-8xl">
             <SplitWords>Your wallet data stays yours.</SplitWords>
           </h1>
           <div className="mt-6 space-y-4 text-mist leading-relaxed max-w-3xl">
@@ -73,12 +73,12 @@ export default function TimeWalletPrivacyPolicy() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6">
+        <div className="mt-10 md:mt-14 grid gap-6">
           {sections.map((section, index) => (
             <Reveal key={section.title} delay={index * 0.08}>
-              <div className="rounded-3xl border border-line bg-ink/40 p-7 md:p-8">
+              <div className="rounded-3xl border border-line bg-ink/40 p-6 sm:p-7 md:p-8">
                 <h2 className="display-tight text-2xl text-amber">{section.title}</h2>
-                <div className="mt-4 space-y-4 text-sm leading-relaxed text-mist">
+                <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-mist">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}

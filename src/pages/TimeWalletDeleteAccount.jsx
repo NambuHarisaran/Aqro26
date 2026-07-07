@@ -72,7 +72,7 @@ export default function TimeWalletDeleteAccount() {
   return (
     <PageShell title="Delete Account — TimeWallet">
       {/* ───── Hero ───── */}
-      <section className="relative overflow-hidden pt-40 pb-16">
+      <section className="relative overflow-hidden pt-32 md:pt-40 pb-12 md:pb-16">
         <ParallaxLayer speed={45} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-12 right-[10%] size-40 text-raise/60 animate-float" />
           <Sparkle className="absolute bottom-4 left-[5%] size-14 text-red-400/30" />
@@ -80,7 +80,7 @@ export default function TimeWalletDeleteAccount() {
         <div className="relative mx-auto max-w-4xl px-5 md:px-10">
           <Reveal>
             <SectionTag>TimeWallet</SectionTag>
-            <h1 className="display-tight mt-4 text-5xl md:text-7xl lg:text-8xl">
+            <h1 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl lg:text-8xl">
               <SplitWords>
                 Delete your <span className="text-red-400">account.</span>
               </SplitWords>
@@ -117,7 +117,7 @@ export default function TimeWalletDeleteAccount() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: [0.21, 0.65, 0.32, 1] }}
-              className="rounded-3xl card-glass p-10 md:p-14 flex flex-col items-center justify-center text-center"
+              className="rounded-3xl card-glass p-7 sm:p-10 md:p-14 flex flex-col items-center justify-center text-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -167,7 +167,7 @@ export default function TimeWalletDeleteAccount() {
               transition={{ duration: 0.3 }}
             >
               <Reveal>
-                <form onSubmit={submit} className="rounded-3xl card-glass p-7 md:p-10 space-y-6">
+                <form onSubmit={submit} className="rounded-3xl card-glass p-5 sm:p-7 md:p-10 space-y-6">
                   <div className="flex items-center gap-3 mb-2">
                     <Trash2 className="size-6 text-red-400" />
                     <h2 className="display-tight text-2xl">Deletion request form</h2>

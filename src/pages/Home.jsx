@@ -45,8 +45,8 @@ function LiveClock() {
     timeZone: 'Asia/Kolkata',
   })
   return (
-    <span className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.25em] text-mist">
-      <Clock className="size-3.5 text-amber" />
+    <span className="inline-flex flex-wrap items-center gap-2 font-mono text-[11px] sm:text-xs tracking-[0.18em] sm:tracking-[0.25em] text-mist">
+      <Clock className="size-3.5 shrink-0 text-amber" />
       IST {time} — TIME IS THE CURRENCY
     </span>
   )
@@ -116,7 +116,7 @@ function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.8 }}
-              className="mt-6 max-w-md text-sm md:text-base font-medium uppercase tracking-[0.28em] text-mist"
+              className="mt-6 max-w-md text-sm md:text-base font-medium uppercase tracking-[0.2em] md:tracking-[0.28em] text-mist"
             >
               App &amp; web development studio
               <br />
@@ -144,7 +144,7 @@ function Hero() {
           </motion.div>
         </div>
 
-        <div className="mt-16 md:mt-20 flex flex-col md:flex-row md:items-end justify-between gap-10">
+        <div className="mt-12 md:mt-20 flex flex-col md:flex-row md:items-end justify-between gap-10">
           <Reveal delay={0.55} className="w-full md:max-w-sm">
             <Link to="/timewallet" className="group block overflow-hidden rounded-2xl card-glass">
               <div className="relative h-40 bg-gradient-to-br from-raise to-deep overflow-hidden">
@@ -181,7 +181,7 @@ function Hero() {
               </div>
             </Reveal>
             <Reveal delay={0.75}>
-              <p className="display-tight text-3xl md:text-4xl text-right">
+              <p className="display-tight text-3xl md:text-4xl text-left md:text-right">
                 Create your
                 <br />
                 next star <span className="text-amber">together.</span>
@@ -209,17 +209,17 @@ export default function Home() {
       />
 
       {/* What we do */}
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-24 md:py-32">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-16 md:py-24 lg:py-32">
         <Reveal>
           <SectionTag>What we do</SectionTag>
-          <h2 className="display-tight mt-4 text-5xl md:text-7xl max-w-3xl">
+          <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl max-w-3xl">
             <SplitWords>
               Two crafts. <span className="text-amber">One obsession.</span>
             </SplitWords>
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 md:mt-14 grid gap-6 md:grid-cols-2">
           {[
             {
               to: '/apps',
@@ -263,8 +263,8 @@ export default function Home() {
       <VelocityText text="Apps · Websites" />
 
       {/* Stats */}
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-20">
-        <div className="grid grid-cols-2 gap-y-12 md:grid-cols-4 rounded-3xl card-glass px-6 py-12 md:py-16 text-center">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-12 md:py-20">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:gap-y-12 md:grid-cols-4 rounded-3xl card-glass px-6 py-10 md:py-16 text-center">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08}>
               <p className="display-tight text-5xl md:text-6xl text-amber">
@@ -277,11 +277,11 @@ export default function Home() {
       </section>
 
       {/* Selected work */}
-      <section className="mx-auto max-w-7xl px-5 md:px-10 py-24">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 py-16 md:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
             <SectionTag>Selected work</SectionTag>
-            <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+            <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
               <SplitWords>Live right now</SplitWords>
             </h2>
           </Reveal>
@@ -292,7 +292,7 @@ export default function Home() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 md:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08} className="h-full">
               <ProjectCard project={p} />
@@ -303,17 +303,17 @@ export default function Home() {
 
       {/* Process */}
       <section className="border-y border-line bg-deep/30">
-        <div className="mx-auto max-w-7xl px-5 md:px-10 py-24">
+        <div className="mx-auto max-w-7xl px-5 md:px-10 py-16 md:py-24">
           <Reveal>
             <SectionTag>How we work</SectionTag>
-            <h2 className="display-tight mt-4 text-5xl md:text-7xl">
+            <h2 className="display-tight mt-4 text-4xl sm:text-5xl md:text-7xl">
               <SplitWords>
                 From idea to <span className="text-amber">orbit</span>
               </SplitWords>
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-4">
+          <div className="mt-10 md:mt-14 grid gap-6 md:grid-cols-4">
             {steps.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.1}>
                 <div className="h-full rounded-3xl border border-line p-7 transition-colors hover:border-amber/40">
@@ -331,14 +331,14 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden py-28 md:py-36">
+      <section className="relative overflow-hidden py-20 sm:py-28 md:py-36">
         <ParallaxLayer speed={40} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-8 left-[10%] size-24 text-raise" />
           <Sparkle className="absolute bottom-10 right-[12%] size-40 text-amber/15" />
         </ParallaxLayer>
         <div className="relative mx-auto max-w-4xl px-5 text-center">
           <Reveal>
-            <h2 className="display-tight text-6xl md:text-8xl leading-[0.92] tracking-[-0.03em]">
+            <h2 className="display-tight text-5xl sm:text-6xl md:text-8xl leading-[0.92] tracking-[-0.03em]">
               <SplitWords>Got an idea?</SplitWords>
               <br />
               <span className="mt-4 block text-amber">

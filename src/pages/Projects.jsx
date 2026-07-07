@@ -22,7 +22,7 @@ export default function Projects() {
 
   return (
     <PageShell title="Projects">
-      <section className="relative overflow-hidden pt-40 pb-16">
+      <section className="relative overflow-hidden pt-32 md:pt-40 pb-12 md:pb-16">
         <ParallaxLayer speed={45} className="absolute inset-0 pointer-events-none">
           <Sparkle className="absolute top-6 right-[10%] size-44 text-raise/60 animate-float" />
           <Sparkle className="absolute bottom-0 left-[5%] size-14 text-amber/40" />
@@ -30,7 +30,7 @@ export default function Projects() {
         <div className="relative mx-auto max-w-7xl px-5 md:px-10">
           <Reveal>
             <SectionTag>Projects</SectionTag>
-            <h1 className="display-tight mt-4 text-6xl md:text-8xl lg:text-9xl">
+            <h1 className="display-tight mt-4 text-5xl sm:text-6xl md:text-8xl lg:text-9xl">
               <SplitWords>
                 Work that <span className="text-amber">works.</span>
               </SplitWords>
@@ -48,7 +48,7 @@ export default function Projects() {
                   key={f.id}
                   type="button"
                   onClick={() => setFilter(f.id)}
-                  className={`rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] transition-all ${
+                  className={`rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-all ${
                     filter === f.id
                       ? 'bg-amber text-ink'
                       : 'border border-mist/25 text-mist hover:border-amber hover:text-amber'
@@ -62,7 +62,7 @@ export default function Projects() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 md:px-10 pb-24">
+      <section className="mx-auto max-w-7xl px-5 md:px-10 pb-16 md:pb-24">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((p, i) => (
             <Reveal key={p.id} delay={(i % 3) * 0.08} className="h-full">
@@ -72,9 +72,9 @@ export default function Projects() {
         </div>
       </section>
 
-      <section className="pb-28 text-center">
+      <section className="px-5 pb-20 md:pb-28 text-center">
         <Reveal>
-          <h2 className="display-tight text-5xl md:text-7xl">
+          <h2 className="display-tight text-4xl sm:text-5xl md:text-7xl">
             Your project belongs <span className="text-amber">up here.</span>
           </h2>
           <div className="mt-10">

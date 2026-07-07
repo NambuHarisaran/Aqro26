@@ -13,7 +13,9 @@ export default function Starfield() {
     const mouse = { x: 0.5, y: 0.5 }
     const target = { x: 0.5, y: 0.5 }
 
-    const stars = Array.from({ length: 110 }, () => ({
+    // fewer particles on small screens — cheaper paints on mobile GPUs
+    const starCount = window.innerWidth < 768 ? 55 : 110
+    const stars = Array.from({ length: starCount }, () => ({
       x: Math.random(),
       y: Math.random(),
       z: 0.3 + Math.random() * 0.7, // depth → parallax amount + size

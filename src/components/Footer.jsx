@@ -24,7 +24,7 @@ export default function Footer() {
         itemClassName="text-2xl md:text-4xl text-paper"
       />
 
-      <div className="mx-auto max-w-7xl px-5 md:px-10 py-14 grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto max-w-7xl px-5 md:px-10 py-10 md:py-14 grid gap-10 md:gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Link to="/" className="inline-flex items-center gap-3">
             <BrandMark showWordmark imageClassName="size-10" />
@@ -37,10 +37,10 @@ export default function Footer() {
 
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-amber mb-5">Sitemap</h3>
-          <ul className="space-y-3">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 md:block md:space-y-3">
             {nav.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-mist hover:text-paper transition-colors">
+                <Link to={l.to} className="inline-block py-0.5 text-mist hover:text-paper transition-colors">
                   {l.label}
                 </Link>
               </li>
@@ -52,12 +52,12 @@ export default function Footer() {
           <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-amber mb-5">Contact</h3>
           <ul className="space-y-3 text-mist">
             <li>
-              <a href="tel:+919787721111" className="hover:text-paper transition-colors">
+              <a href="tel:+919787721111" className="inline-block py-0.5 hover:text-paper transition-colors">
                 +91 97877 21111
               </a>
             </li>
             <li>
-              <a href="mailto:aqroindia@gmail.com" className="hover:text-paper transition-colors">
+              <a href="mailto:aqroindia@gmail.com" className="inline-block py-0.5 hover:text-paper transition-colors">
                 aqroindia@gmail.com
               </a>
             </li>
